@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://sp4q1e6lxy0c"]
+
+[ext_resource type="Script" uid="uid://bt3nerpa0uius" path="res://start.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://r7ofg4ohrwxm" path="res://exit.gd" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://o15nn3hrtu5c" path="res://assets/logo_MathG_x5vo20.png" id="3_fu7sn"]
+
+[node name="Main Menu" type="Node2D" unique_id=1116340450]
+
+[node name="Control" type="Control" parent="." unique_id=1770728524]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="Button" parent="Control" unique_id=278350856]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 509.0
+offset_right = 547.0
+offset_bottom = 578.0
+text = "Iniciar Juego"
+script = ExtResource("1_06t4h")
+
+[node name="tutorial" type="Button" parent="Control" unique_id=1363363148]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 505.0
+offset_right = 943.0
+offset_bottom = 580.0
+text = "Tutorial"
+
+[node name="Exit" type="Button" parent="Control" unique_id=1758905424]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 38.0
+offset_right = 1120.0
+offset_bottom = 85.0
+text = "Salir"
+script = ExtResource("2_7vrkn")
+
+[node name="LogoMathGX5Vo20" type="Sprite2D" parent="Control" unique_id=1854336481]
+position = Vector2(576, 268)
+scale = Vector2(0.8070501, 0.8464052)
+texture = ExtResource("3_fu7sn")
+
+[connection signal="pressed" from="Control/start" to="Control/start" method="_on_pressed"]
+[connection signal="pressed" from="Control/Exit" to="Control/Exit" method="_on_pressed"]
