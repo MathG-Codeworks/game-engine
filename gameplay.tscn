@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cnuyrfthxtqha"]
+
+[ext_resource type="PackedScene" uid="uid://pglcdfyi7xku" path="res://character.tscn" id="1_n4psk"]
+[ext_resource type="Script" uid="uid://cjc1jkynnsu11" path="res://button.gd" id="2_ej4tk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(30, 1, 30)
+
+[node name="Gameplay" type="Node3D" unique_id=2114143406]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=320175868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1826066003]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1680766705]
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=915969840]
+transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928473, 0.29742724, 0, 9.594474, 26.562931)
+shadow_enabled = true
+
+[node name="character" parent="." unique_id=1845171669 instance=ExtResource("1_n4psk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.6, 0)
+
+[node name="Button" type="Button" parent="." unique_id=1144698581]
+offset_left = 1078.0
+offset_top = 14.0
+offset_right = 1128.0
+offset_bottom = 58.0
+script = ExtResource("2_ej4tk")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
