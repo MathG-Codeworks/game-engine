@@ -99,6 +99,7 @@ _data = {
 size = Vector3(0.47879028, 2.2854004, 1)
 
 [node name="character" instance=ExtResource("1_glpr6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("2_wdpcj")
 
 [node name="esq_brazo_der" parent="." index="0"]

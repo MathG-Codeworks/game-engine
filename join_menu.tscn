@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlbeum1hlacke"]
+
+[ext_resource type="Script" uid="uid://ckcyoikowgnwg" path="res://join_menu.gd" id="1_ncku7"]
+[ext_resource type="Texture2D" uid="uid://o15nn3hrtu5c" path="res://assets/logo_MathG_x5vo20.png" id="1_xqaw6"]
+
+[node name="JoinMenu" type="Node2D"]
+script = ExtResource("1_ncku7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="input" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 498.0
+offset_right = 690.5625
+offset_bottom = 573.0
+clear_button_enabled = true
+
+[node name="join" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 498.0
+offset_right = 1051.0
+offset_bottom = 573.0
+text = "Unirse"
+
+[node name="back" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1045.0
+offset_top = 38.0
+offset_right = 1123.0
+offset_bottom = 85.0
+text = "Volver"
+
+[node name="LogoMathGX5Vo20" type="Sprite2D" parent="Control"]
+position = Vector2(576, 268)
+scale = Vector2(0.8070501, 0.8464052)
+texture = ExtResource("1_xqaw6")
+
+[connection signal="pressed" from="Control/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]

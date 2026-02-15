@@ -7,13 +7,34 @@ extends CharacterBody3D
 var target_velocity: Vector3 = Vector3.ZERO
 var facing_angle: float = -90
 var camera_weight: float = 0.1
+var is_local_player : bool = false
+var target_remote_position: Vector3
+var target_remote_rotation: float
+var last_sent_position: Vector3
+var last_sent_rotation: float
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	target_remote_position = global_position
+	target_remote_rotation = rotation_degrees.y
+
 func _physics_process(delta: float):
+	if is_local_player:
+		_process_local_input(delta)
+		if global_position.distance_to(last_sent_position) > 0.1 or abs(rotation_degrees.y - last_sent_rotation) > 1:
+			if Engine.get_physics_frames() % 5 == 0:
+				var current_anim = anim.current_animation if anim.is_playing() else ""
+				MultiplayerManager._send_player_state(global_position, rotation_degrees.y, current_anim)
+				last_sent_position = global_position
+				last_sent_rotation = rotation_degrees.y
+	else:
+		global_position = global_position.lerp(target_remote_position, 0.2)
+		rotation_degrees.y = lerp(rotation_degrees.y, target_remote_rotation, 0.2)
+
+func _process_local_input(delta):
 	var direction = Vector3.ZERO
 
-	# ---- Movimiento WASD ----
 	if Input.is_action_pressed("right"):
 		direction.x += 1
 	if Input.is_action_pressed("left"):
@@ -38,13 +59,12 @@ func _physics_process(delta: float):
 	else:
 		anim.stop()
 
-	# ---- Velocidad horizontal deseada ----
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
 
 	if not is_on_floor():
 		if velocity.y < 0:
-			velocity.y -= fall_acceleration * 1.8 * delta # caída más rápida
+			velocity.y -= fall_acceleration * 1.8 * delta
 		else:
 			velocity.y -= fall_acceleration * delta
 	else:
@@ -57,8 +77,20 @@ func _physics_process(delta: float):
 	velocity.z = lerp(velocity.z, target_velocity.z, 0.15)
 
 	move_and_slide()
-
 	$CameraController.position = lerp($CameraController.position, position, camera_weight)
+		
+func update_remote_state(data):
+	target_remote_position = Vector3(data.x, data.y, data.z)
+	target_remote_rotation = data.rot
+	
+	var anim_name = data.get("anim", "")
+	
+	if anim_name == "":
+		if anim.is_playing():
+			anim.stop()
+	else:
+		if not anim.is_playing() or anim.current_animation != anim_name:
+			anim.play(anim_name)
 
 func flip_to(angle: float):
 	var tween = create_tween()
