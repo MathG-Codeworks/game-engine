@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pglcdfyi7xku"]
+[gd_scene format=3 uid="uid://pglcdfyi7xku"]
 
 [ext_resource type="PackedScene" uid="uid://r2abigi4gwkw" path="res://assets/character.glb" id="1_glpr6"]
 [ext_resource type="Script" uid="uid://bhhr51x6uyso4" path="res://character.gd" id="2_wdpcj"]
@@ -98,42 +98,40 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_yxww1"]
 size = Vector3(0.47879028, 2.2854004, 1)
 
-[node name="character" instance=ExtResource("1_glpr6")]
+[node name="character" unique_id=1860782428 instance=ExtResource("1_glpr6")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("2_wdpcj")
 
-[node name="esq_brazo_der" parent="." index="0"]
+[node name="esq_brazo_der" parent="." index="0" unique_id=246511253]
 transform = Transform3D(-0.5999924, -0.0016980886, -0.0024799535, 0.0019177723, -0.597483, -0.054868083, -0.0023142647, -0.05487532, 0.5974809, -0.012252, 1.3173647, -0.42878735)
 
-[node name="esq_brazo_izq" parent="." index="1"]
+[node name="esq_brazo_izq" parent="." index="1" unique_id=1567765116]
 transform = Transform3D(-0.5999958, 0.0018872155, 0.0012358407, -0.0017490075, -0.5967679, 0.062170044, 0.0014247304, 0.062166005, 0.5967691, 0.012252, 1.3173647, 0.40742803)
 
-[node name="esq_cabeza" parent="." index="2"]
+[node name="esq_cabeza" parent="." index="2" unique_id=721338764]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1.4813528, 0)
 
-[node name="esq_pie_der" parent="." index="3"]
+[node name="esq_pie_der" parent="." index="3" unique_id=1567022246]
 transform = Transform3D(-0.399904, -0.0068805264, -0.0054264558, 0.004069014, -0.36518326, 0.16317062, -0.007760876, 0.16307627, 0.3651656, -0.012252, 0.58887327, -0.2350414)
 
-[node name="esq_pie_izq" parent="." index="4"]
+[node name="esq_pie_izq" parent="." index="4" unique_id=2077712225]
 transform = Transform3D(-0.3999252, 0.005272706, 0.0056596114, -0.0069593713, -0.37301865, -0.14425202, 0.0033763559, -0.14432351, 0.37304065, -0.012252, 0.58878326, 0.17682749)
 
-[node name="esq_torso" parent="." index="5"]
+[node name="esq_torso" parent="." index="5" unique_id=1048539311]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.68074507, 0)
 
-[node name="AnimationPlayer" parent="." index="6"]
-libraries = {
-&"global": SubResource("AnimationLibrary_wdpcj")
-}
+[node name="AnimationPlayer" parent="." index="6" unique_id=434351530]
+libraries/global = SubResource("AnimationLibrary_wdpcj")
 speed_scale = 2.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7" unique_id=531362385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015335083, 1.2171631, 0)
 shape = SubResource("BoxShape3D_yxww1")
 
-[node name="CameraController" type="Node3D" parent="." index="8"]
+[node name="CameraController" type="Node3D" parent="." index="8" unique_id=1102324186]
 top_level = true
 
-[node name="CameraTarget" type="Node3D" parent="CameraController" index="0"]
+[node name="CameraTarget" type="Node3D" parent="CameraController" index="0" unique_id=728856157]
 transform = Transform3D(1, 0, 0, 0, 0.9184878, 0.39544934, 0, -0.39544934, 0.9184878, 0, 5.0385485, 6.8906517)
 
-[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget" index="0"]
+[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget" index="0" unique_id=1641285534]

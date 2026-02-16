@@ -6,6 +6,7 @@ func _ready() -> void:
 	MultiplayerManager.spawned.connect(spawn_pending_players)
 	spawn_pending_players()
 	spawn_local_player()
+	$Multiplayer_options/Multiplayer_btn.visible = false
 	
 func spawn_pending_players():
 	for player in MultiplayerManager.pending_players:
@@ -33,3 +34,15 @@ func spawn_local_player():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+
+func _on_multiplayer_options_body_entered(body: Node3D) -> void:
+	if body is Character:
+		$Multiplayer_options/Multiplayer_btn.visible = true
+		print('Entró un personaje', body.name)
+
+
+func _on_multiplayer_options_body_exited(body: Node3D) -> void:
+	if body is Character:
+		$Multiplayer_options/Multiplayer_btn.visible = false
