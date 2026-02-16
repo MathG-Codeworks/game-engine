@@ -11,7 +11,7 @@ var character_scene : PackedScene = preload("res://character.tscn")
 const OP_PLAYER_STATE = 1
 	
 func start_match():
-	var result = await NetworkManager.socket.create_match_async()
+	var result = await NetworkManager.socket.create_match_async("ranked_match")
 
 	if result.is_exception():
 		print("Match error")
