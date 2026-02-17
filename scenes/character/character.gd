@@ -21,7 +21,11 @@ func _ready() -> void:
 	target_remote_rotation = rotation_degrees.y
 
 func _physics_process(delta: float):
+	
 	if is_local_player:
+		if not CharacterManager.input_enabled:
+			return
+		
 		_process_local_input(delta)
 		if global_position.distance_to(last_sent_position) > 0.1 or abs(rotation_degrees.y - last_sent_rotation) > 1:
 			if Engine.get_physics_frames() % 5 == 0:

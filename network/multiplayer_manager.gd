@@ -2,11 +2,12 @@ extends Node
 
 signal joined
 signal spawned
+signal started
 
 var match_id : String
 var players := {}
 var pending_players := []
-var character_scene : PackedScene = preload("res://character.tscn")
+var character_scene : PackedScene = preload("res://scenes/character/character.tscn")
 
 const OP_PLAYER_STATE = 1
 	
@@ -18,6 +19,7 @@ func start_match():
 		return
 
 	match_id = result.match_id
+	started.emit()
 
 	NetworkManager.socket.received_match_state.connect(_on_match_state)
 	NetworkManager.socket.received_match_presence.connect(_on_presence)

@@ -1,11 +1,10 @@
-extends Node3D
+extends Node
 
-@onready var start_button: Button = $"Main Menu/Control/start"
+@onready var start_button: Button = $Control/Start
 
 var client : NakamaClient
 var session : NakamaSession
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_button.disabled = true
 	start_button.text = "Autenticando..."
@@ -15,13 +14,13 @@ func _ready() -> void:
 	
 func _on_auth():
 	start_button.text = "Conectando..."
-	print("Usuario autenticado!")
 	
 func _on_socket():
 	start_button.text = "Jugar!"
 	start_button.disabled = false
-	print('Usuario conectado!');
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/lobby/lobby.tscn")
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

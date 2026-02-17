@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cn6dpvpbdum4h"]
+[gd_scene load_steps=7 format=3 uid="uid://cn6dpvpbdum4h"]
 
-[ext_resource type="Script" uid="uid://ci3mfed813t1j" path="res://gameplay.gd" id="1_ej4tk"]
-[ext_resource type="Script" uid="uid://cjc1jkynnsu11" path="res://button.gd" id="2_ej4tk"]
+[ext_resource type="Script" uid="uid://ci3mfed813t1j" path="res://scenes/lobby/lobby.gd" id="1_ej4tk"]
+[ext_resource type="PackedScene" uid="uid://c7ns3egbmiyk" path="res://ui/components/match_modal/match_modal.tscn" id="3_mlusu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(30, 1, 30)
@@ -14,97 +14,83 @@ size = Vector3(0.098082274, 3.8, 1.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oe8ih"]
 
-[node name="Gameplay" type="Node3D" unique_id=570914270]
+[node name="Lobby" type="Node3D"]
 script = ExtResource("1_ej4tk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=249526756]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1361444469]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_7dm0k")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2133868440]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3841858e-07, 0)
 mesh = SubResource("BoxMesh_ig7tw")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1399593789]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928473, 0.29742724, 0, 9.594474, 26.562931)
 shadow_enabled = true
 
-[node name="Button" type="Button" parent="." unique_id=1760527711]
-visible = false
-offset_left = 1078.0
-offset_top = 14.0
-offset_right = 1128.0
-offset_bottom = 58.0
-script = ExtResource("2_ej4tk")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=811667493]
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(29.765282, 0, 0, 0, 1.2155757, 0, 0, 0, 0.16564731, -0.021139145, 1.812588, -14.901383)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D" unique_id=417127787]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
 transform = Transform3D(0.097766854, 0, 0, 0, -0.0070304843, -6.3170657, 0, 3.171394, -0.754129, 0.0015120152, -1.8619723, 0.86525726)
 operation = 2
 calculate_tangents = false
 use_collision = true
 sides = 18
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D" unique_id=837656577]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D" unique_id=1192258875]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0.0017292373, 0, -0.03540039)
 shape = SubResource("BoxShape3D_ej4tk")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1355155661]
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(29.765282, 0, 0, 0, 1.2155757, 0, 0, 0, 0.16564731, -0.021139145, 1.812588, -14.901383)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D2" unique_id=1105064245]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D2"]
 transform = Transform3D(0.097766854, 0, 0, 0, -0.0070304843, -6.3170657, 0, 3.171394, -0.754129, 0.0015120152, -1.8619723, 0.86525726)
 operation = 2
 calculate_tangents = false
 use_collision = true
 sides = 18
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2" unique_id=1983903284]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D" unique_id=1671109060]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0.0017292373, 0, -0.03540039)
 shape = SubResource("BoxShape3D_ej4tk")
 
-[node name="Multiplayer_options" type="Area3D" parent="." unique_id=171876634]
+[node name="Multiplayer_options" type="Area3D" parent="."]
 transform = Transform3D(2.9060411, 0, 0, 0, 3.2177184, 0, 0, 0, 1.3611405, 0, 0, -14.018775)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Multiplayer_options" unique_id=44582705]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Multiplayer_options"]
 shape = SubResource("BoxShape3D_oe8ih")
 
-[node name="Multiplayer_btn" type="Button" parent="Multiplayer_options" unique_id=432080292]
-offset_left = 633.0
-offset_top = 322.0
-offset_right = 870.0
-offset_bottom = 362.0
-text = "Entrar a sala"
+[node name="MatchModal" parent="Multiplayer_options" instance=ExtResource("3_mlusu")]
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=613491534]
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(-1.3010817e-06, 0, 0.16564731, 0, 1.2155757, 0, -29.765282, 0, -7.240674e-09, -14.882582, 1.812588, 0.010302067)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1947213625]
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(-1.3010817e-06, 0, 0.16564731, 0, 1.2155757, 0, -29.765282, 0, -7.240674e-09, 14.900326, 1.812588, 0.010302067)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=978605463]
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.371137e-08, 0, 25.994045, 0, 1, 0, -0.9999996, 0, -1.1362357e-06, 0, 1.5239866, 14.98885)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=807851999]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0, 0, 0)
 shape = SubResource("BoxShape3D_ej4tk")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="body_entered" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_entered"]
 [connection signal="body_exited" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_exited"]

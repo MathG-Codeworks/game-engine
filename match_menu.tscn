@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu0j1g5xw1jdy"]
+[gd_scene load_steps=3 format=3 uid="uid://drqfr6k8t7uxp"]
 
-[ext_resource type="Script" uid="uid://baq7kq5227cxr" path="res://match_menu.gd" id="1_baoeo"]
 [ext_resource type="Texture2D" uid="uid://o15nn3hrtu5c" path="res://assets/logo_MathG_x5vo20.png" id="2_0f3wy"]
 
+[sub_resource type="GDScript" id="GDScript_1bvfe"]
+script/source = "extends Node
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://main_menu.tscn\")
+
+func _on_create_pressed() -> void:
+	MultiplayerManager.start_match()
+	get_tree().change_scene_to_file(\"res://gameplay.tscn\")
+
+func _on_join_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://join_menu.tscn\")
+"
+
 [node name="MathMenu" type="Node2D"]
-script = ExtResource("1_baoeo")
+script = SubResource("GDScript_1bvfe")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

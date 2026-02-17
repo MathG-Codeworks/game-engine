@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ns3egbmiyk"]
+
+[ext_resource type="Script" uid="uid://d11214lr8gx6m" path="res://ui/components/match_modal/match_modal.gd" id="1_uwbdd"]
+
+[sub_resource type="FontFile" id="FontFile_uwbdd"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+
+[node name="MatchModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwbdd")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="InputCode" type="LineEdit" parent="CenterContainer/Panel/MarginContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/caret_width = 1
+theme_override_fonts/font = SubResource("FontFile_uwbdd")
+theme_override_font_sizes/font_size = 18
+placeholder_text = "CODIGO..."
+alignment = 1
+clear_button_enabled = true
+
+[node name="ButtonJoin" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UNIRSE
+"
+
+[node name="ButtonCreate" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CREAR SALA"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="CenterContainer" to="." method="_on_center_container_gui_input"]
+[connection signal="focus_entered" from="CenterContainer/Panel/MarginContainer/HBoxContainer/InputCode" to="." method="_on_input_code_focus_entered"]
+[connection signal="focus_exited" from="CenterContainer/Panel/MarginContainer/HBoxContainer/InputCode" to="." method="_on_input_code_focus_exited"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/HBoxContainer/ButtonCreate" to="." method="_on_button_create_pressed"]
