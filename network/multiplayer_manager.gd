@@ -5,6 +5,7 @@ signal spawned
 signal started
 
 var match_id : String
+var match_code : String
 var players := {}
 var pending_players := []
 var character_scene : PackedScene = preload("res://scenes/character/character.tscn")
@@ -12,40 +13,65 @@ var character_scene : PackedScene = preload("res://scenes/character/character.ts
 const OP_PLAYER_STATE = 1
 	
 func start_match():
-	var result = await NetworkManager.socket.create_match_async("ranked_match")
-
+	var result = await NetworkManager.socket.rpc_async("create_match", "")
+	
 	if result.is_exception():
-		print("Match error")
+		print("Match error: ", result.get_exception().message)
 		return
-
-	match_id = result.match_id
+		
+	var response = JSON.parse_string(result.payload)
+	
+	if not response.success:
+		print("Error creating match")
+		return
+		
+	match_id = response.matchId
+	match_code = response.code
+	
+	var join_result = await NetworkManager.socket.join_match_async(match_id)
+	
+	if join_result.is_exception():
+		print("Error joining match")
+		return
+		
 	started.emit()
 
 	NetworkManager.socket.received_match_state.connect(_on_match_state)
 	NetworkManager.socket.received_match_presence.connect(_on_presence)
 
 func join_match(code: String):
-	var result = await NetworkManager.socket.join_match_async(code)
+	var payload = JSON.stringify({"code": code})
+	var result = await NetworkManager.socket.rpc_async("join_match_by_code", payload)
 	
 	if result.is_exception():
-		print("Match error")
+		print("Error searching for match")
 		return
 		
-	match_id = result.match_id
+	var response = JSON.parse_string(result.payload)
+	
+	if not response.success:
+		print("Error: ", response.error)
+		return
+		
+	match_id = response.matchId
+	
+	var join_result = await NetworkManager.socket.join_match_async(match_id)
+	
+	if join_result.is_exception():
+		print("Error joining match")
+		return
+	
+	match_code = code
 	joined.emit()
 	
-	if not NetworkManager.socket.received_match_state.is_connected(_on_match_state):
-		NetworkManager.socket.received_match_state.connect(_on_match_state)
-	if not NetworkManager.socket.received_match_presence.is_connected(_on_presence):
-		NetworkManager.socket.received_match_presence.connect(_on_presence)
+	NetworkManager.socket.received_match_state.connect(_on_match_state)
+	NetworkManager.socket.received_match_presence.connect(_on_presence)
 	
-	for presence in result.presences:
+	for presence in join_result.presences:
 		if presence.user_id != NetworkManager.session.user_id:
 			pending_players.append(presence)
 
 func _on_match_state(state):
-	print("Recibí estado:", state.data)
-	
 	if state.op_code != OP_PLAYER_STATE:
 		return
 	
@@ -57,7 +83,7 @@ func _on_match_state(state):
 	
 	if not players.has(sender_id):
 		return
-	
+		
 	players[sender_id].update_remote_state(data)
 
 func _on_presence(event):
