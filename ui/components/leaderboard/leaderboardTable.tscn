@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bel7j8cw4x5nj"]
+
+[ext_resource type="Script" uid="uid://b362vrey5w7y7" path="res://ui/components/leaderboard/leaderboard_table.gd" id="1_n6uko"]
+[ext_resource type="PackedScene" uid="uid://c5ebm8bly18ke" path="res://ui/components/leaderboard/table.tscn" id="2_jqnd2"]
+[ext_resource type="Script" uid="uid://cflospfo02sp3" path="res://ui/components/leaderboard/DataFrame.gd" id="3_ypgqc"]
+
+[sub_resource type="Resource" id="Resource_ti5vt"]
+script = ExtResource("3_ypgqc")
+metadata/_custom_type_script = "uid://cflospfo02sp3"
+
+[node name="leaderboardTable" type="Control" unique_id=623649994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_n6uko")
+
+[node name="Background" type="Panel" parent="." unique_id=1591195106]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -234.0
+offset_top = 17.0
+offset_right = -20.0
+offset_bottom = 284.0
+grow_horizontal = 0
+
+[node name="Table" parent="Background" unique_id=1194031389 instance=ExtResource("2_jqnd2")]
+layout_mode = 1
+data = SubResource("Resource_ti5vt")
