@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7ns3egbmiyk"]
+[gd_scene format=3 uid="uid://c7ns3egbmiyk"]
 
 [ext_resource type="Script" uid="uid://d11214lr8gx6m" path="res://ui/components/match_modal/match_modal.gd" id="1_uwbdd"]
 
@@ -6,6 +6,15 @@
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -22,7 +31,7 @@ cache/0/18/0/underline_position = 0.0
 cache/0/18/0/underline_thickness = 0.0
 cache/0/18/0/scale = 1.0
 
-[node name="MatchModal" type="Control"]
+[node name="MatchModal" type="Control" unique_id=820398262]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwbdd")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1797094415]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,11 +49,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 
-[node name="Panel" type="Panel" parent="CenterContainer"]
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1675389977]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=1961221403]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,11 +66,11 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer" unique_id=232926213]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="InputCode" type="LineEdit" parent="CenterContainer/Panel/MarginContainer/HBoxContainer"]
+[node name="InputCode" type="LineEdit" parent="CenterContainer/Panel/MarginContainer/HBoxContainer" unique_id=242540476]
 clip_contents = true
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
@@ -72,13 +81,13 @@ placeholder_text = "CODIGO..."
 alignment = 1
 clear_button_enabled = true
 
-[node name="ButtonJoin" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer"]
+[node name="ButtonJoin" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer" unique_id=1251990734]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UNIRSE
 "
 
-[node name="ButtonCreate" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer"]
+[node name="ButtonCreate" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer" unique_id=466422686]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "CREAR SALA"
@@ -87,4 +96,5 @@ text = "CREAR SALA"
 [connection signal="gui_input" from="CenterContainer" to="." method="_on_center_container_gui_input"]
 [connection signal="focus_entered" from="CenterContainer/Panel/MarginContainer/HBoxContainer/InputCode" to="." method="_on_input_code_focus_entered"]
 [connection signal="focus_exited" from="CenterContainer/Panel/MarginContainer/HBoxContainer/InputCode" to="." method="_on_input_code_focus_exited"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/HBoxContainer/ButtonJoin" to="." method="_on_button_join_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/HBoxContainer/ButtonCreate" to="." method="_on_button_create_pressed"]

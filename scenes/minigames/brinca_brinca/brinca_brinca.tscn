@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lk0bxocw1teh"]
+
+[ext_resource type="Script" uid="uid://bs8nwyqhxg6pv" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gd" id="1_yciyb"]
+
+[node name="BrincaBrinca" type="Node2D"]
+script = ExtResource("1_yciyb")
