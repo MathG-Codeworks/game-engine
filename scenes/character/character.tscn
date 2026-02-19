@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://pglcdfyi7xku"]
+[gd_scene format=3 uid="uid://pglcdfyi7xku"]
 
 [ext_resource type="PackedScene" uid="uid://r2abigi4gwkw" path="res://assets/character.glb" id="1_glpr6"]
 [ext_resource type="Script" uid="uid://bhhr51x6uyso4" path="res://scenes/character/character.gd" id="2_wdpcj"]
@@ -12,36 +12,40 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_yxww1"]
 size = Vector3(0.47879028, 2.2854004, 1)
 
-[node name="character" instance=ExtResource("1_glpr6")]
+[node name="character" unique_id=573184191 instance=ExtResource("1_glpr6")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("2_wdpcj")
 
-[node name="esq_brazo_der" parent="." index="0"]
+[node name="esq_brazo_der" parent="." index="0" unique_id=246511253]
 transform = Transform3D(-0.5999996, -0.00019303984, -0.0005350296, 0.0002801536, -0.5914778, -0.100767046, -0.00049501, -0.100767255, 0.59147763, -0.012252, 1.2974072, -0.42878735)
 
-[node name="esq_brazo_izq" parent="." index="1"]
+[node name="esq_brazo_izq" parent="." index="1" unique_id=1567765116]
 transform = Transform3D(-0.6, -2.2616732e-07, 4.242879e-08, 2.3009898e-07, -0.59088475, 0.10418888, 2.5106743e-09, 0.104188904, 0.5908846, 0.012252, 1.2974072, 0.40742803)
 
-[node name="esq_pie_der" parent="." index="3"]
+[node name="esq_pie_der" parent="." index="3" unique_id=1567022246]
 transform = Transform3D(-0.4, -6.039833e-08, 0, 6.039832e-08, -0.40000004, 0, 0, 0, 0.4, -0.012252, 0.56882566, -0.25802648)
 
-[node name="esq_pie_izq" parent="." index="4"]
+[node name="esq_pie_izq" parent="." index="4" unique_id=2077712225]
 transform = Transform3D(-0.4, -6.039832e-08, 0, 6.039832e-08, -0.4, 0, 0, 0, 0.4, -0.012252, 0.56882566, 0.20180675)
 
-[node name="AnimationPlayer" parent="." index="6"]
-libraries = {
-&"global": SubResource("AnimationLibrary_x1sy7")
-}
+[node name="AnimationPlayer" parent="." index="6" unique_id=434351530]
+libraries/global = SubResource("AnimationLibrary_x1sy7")
 speed_scale = 2.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7" unique_id=1148594611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015335083, 1.2171631, 0)
 shape = SubResource("BoxShape3D_yxww1")
 
-[node name="CameraController" type="Node3D" parent="." index="8"]
+[node name="CameraController" type="Node3D" parent="." index="8" unique_id=1304843428]
 top_level = true
 
-[node name="CameraTarget" type="Node3D" parent="CameraController" index="0"]
+[node name="CameraTarget" type="Node3D" parent="CameraController" index="0" unique_id=897575269]
 transform = Transform3D(1, 0, 0, 0, 0.9184878, 0.39544934, 0, -0.39544934, 0.9184878, 0, 5.0385485, 6.8906517)
 
-[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget" index="0"]
+[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget" index="0" unique_id=680644013]
+
+[node name="UserName" type="Label3D" parent="." index="9" unique_id=839509021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01611936, 2.8726666, 0)
+top_level = true
+text = "user_1"
+font_size = 72

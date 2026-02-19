@@ -8,6 +8,7 @@ extends CharacterBody3D
 var target_velocity: Vector3 = Vector3.ZERO
 var facing_angle: float = -90
 var camera_weight: float = 0.1
+var user_name_weight: float = 0.45
 var is_local_player : bool = false
 var target_remote_position: Vector3
 var target_remote_rotation: float
@@ -15,6 +16,8 @@ var last_sent_position: Vector3
 var last_sent_rotation: float
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var user_name: Label3D = $UserName
+
 
 func _ready() -> void:
 	target_remote_position = global_position
@@ -82,6 +85,7 @@ func _process_local_input(delta):
 	velocity.z = lerp(velocity.z, target_velocity.z, 0.15)
 
 	move_and_slide()
+	user_name.position = lerp(user_name.position, position + Vector3.UP * 2.8, user_name_weight)
 	$CameraController.position = lerp($CameraController.position, position, camera_weight)
 		
 func update_remote_state(data):
