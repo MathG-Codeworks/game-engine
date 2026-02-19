@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqe21ebw8kv0b"]
+[gd_scene format=3 uid="uid://cqe21ebw8kv0b"]
 
 [ext_resource type="Script" uid="uid://2jvclhomn6eo" path="res://scenes/waiting_room/waiting_room.gd" id="1_1yeck"]
 [ext_resource type="PackedScene" uid="uid://bj3yxctpyjyyo" path="res://ui/components/match_code/match_code.tscn" id="2_676s3"]
+[ext_resource type="PackedScene" uid="uid://bel7j8cw4x5nj" path="res://ui/components/leaderboard/leaderboardTable.tscn" id="3_qax70"]
+[ext_resource type="PackedScene" uid="uid://bju42pfe5vvey" path="res://ui/components/ready_btn/state_btn.tscn" id="4_wy88x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1yeck"]
 size = Vector3(30, 1, 30)
@@ -12,49 +14,60 @@ size = Vector3(30, 1, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wy88x"]
 size = Vector3(0.098082274, 3.8, 1.15)
 
-[node name="WaitingRoom" type="Node3D"]
+[node name="WaitingRoom" type="Node3D" unique_id=1915260786]
 script = ExtResource("1_1yeck")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=868930998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1548616011]
 shape = SubResource("BoxShape3D_1yeck")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1898524185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3841858e-07, 0)
 mesh = SubResource("BoxMesh_676s3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1276339859]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928473, 0.29742724, 0, 9.594474, 26.562931)
 shadow_enabled = true
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1221725893]
 transform = Transform3D(29.765282, 0, 0, 0, 1.2155757, 0, 0, 0, 0.16564731, -0.021139145, 1.812588, -14.901383)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2" unique_id=310817607]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D" unique_id=605284464]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0.0017292373, 0, -0.03540039)
 shape = SubResource("BoxShape3D_wy88x")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=923615218]
 transform = Transform3D(-1.3010817e-06, 0, 0.16564731, 0, 1.2155757, 0, -29.765282, 0, -7.240674e-09, -14.882582, 1.812588, 0.010302067)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=362133824]
 transform = Transform3D(-1.3010817e-06, 0, 0.16564731, 0, 1.2155757, 0, -29.765282, 0, -7.240674e-09, 14.900326, 1.812588, 0.010302067)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=566851487]
 transform = Transform3D(-4.371137e-08, 0, 25.994045, 0, 1, 0, -0.9999996, 0, -1.1362357e-06, 0, 1.5239866, 14.98885)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1984766408]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0, 0, 0)
 shape = SubResource("BoxShape3D_wy88x")
 
-[node name="MatchCode" parent="." instance=ExtResource("2_676s3")]
+[node name="MatchCode" parent="." unique_id=168478568 instance=ExtResource("2_676s3")]
+
+[node name="leaderboardTable" parent="." unique_id=623649994 instance=ExtResource("3_qax70")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -233.0
+offset_bottom = 285.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="StateBtn" parent="." unique_id=1843302821 instance=ExtResource("4_wy88x")]
