@@ -3,6 +3,7 @@ extends Node
 signal joined
 signal spawned
 signal started
+signal ranking_updated
 
 var match_id : String
 var match_code : String
@@ -93,6 +94,7 @@ func _on_match_state(state):
 		
 		RANKING_OP_STATE:
 			ranking_players = JSON.parse_string(state.data)
+			ranking_updated.emit()
 
 func _on_presence(event):
 	for join in event.joins:

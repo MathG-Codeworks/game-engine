@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bel7j8cw4x5nj"]
+[gd_scene load_steps=5 format=3 uid="uid://bel7j8cw4x5nj"]
 
 [ext_resource type="Script" uid="uid://b362vrey5w7y7" path="res://ui/components/leaderboard/leaderboard_table.gd" id="1_n6uko"]
 [ext_resource type="PackedScene" uid="uid://c5ebm8bly18ke" path="res://ui/components/leaderboard/table.tscn" id="2_jqnd2"]
@@ -8,28 +8,30 @@
 script = ExtResource("3_ypgqc")
 metadata/_custom_type_script = "uid://cflospfo02sp3"
 
-[node name="leaderboardTable" type="Control" unique_id=623649994]
+[node name="leaderboardTable" type="Control"]
+custom_minimum_size = Vector2(400, 70)
 layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_n6uko")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("1_n6uko")
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
 
-[node name="Background" type="Panel" parent="." unique_id=1591195106]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -234.0
-offset_top = 17.0
-offset_right = -20.0
-offset_bottom = 284.0
-grow_horizontal = 0
+[node name="Background" type="Panel" parent="MarginContainer"]
+layout_mode = 2
 
-[node name="Table" parent="Background" unique_id=1194031389 instance=ExtResource("2_jqnd2")]
+[node name="Table" parent="MarginContainer/Background" instance=ExtResource("2_jqnd2")]
 layout_mode = 1
 data = SubResource("Resource_ti5vt")

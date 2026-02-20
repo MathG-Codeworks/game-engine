@@ -1,26 +1,24 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	var colums = ["Pos", "name", "score"]
-	var data = [
-		[1, "user_1", 200],
-		[2, "user_2", 8543],
-		[3, "user_3", 20000],
-		[4, "user_4", 10000]
-	]
-	
-	var df = DataFrame.New(data, colums)
-	
-	df.SortBy("score", true)
-	
-	$Background/Table.data = df
-	$Background/Table.render()
-	
+	MultiplayerManager.ranking_updated.connect(_update_ranking_table)
+	_update_ranking_table()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _update_ranking_table():
+	var columns = ["Pos", "name", "score"]
+	var data = []
+	
+	for i in range(MultiplayerManager.ranking_players.size()):
+		var player = MultiplayerManager.ranking_players[i]
+		data.append([
+			i + 1,
+			player.username,
+			player.score
+		])
+		
+	if data.is_empty():
+		data = [["-", "Sin jugadores", 0]]
+	
+	var df = DataFrame.New(data, columns)
+	$MarginContainer/Background/Table.data = df
+	$MarginContainer/Background/Table.render()

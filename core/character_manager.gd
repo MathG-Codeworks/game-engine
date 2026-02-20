@@ -8,6 +8,7 @@ func spawn_local_player():
 	get_tree().current_scene.add_child(character)
 
 	character.is_local_player = true
+	character.label_user_name.text = NetworkManager.session.username
 	MultiplayerManager.players[NetworkManager.session.user_id] = character
 
 func spawn_pending_players():
@@ -26,4 +27,5 @@ func spawn_player(player):
 	print("PLAYER REMOTO:" + player.user_id)
 	
 	character.is_local_player = player.user_id == NetworkManager.session.user_id
+	character.label_user_name.text = player.username
 	MultiplayerManager.players[player.user_id] = character

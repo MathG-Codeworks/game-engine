@@ -16,8 +16,7 @@ var last_sent_position: Vector3
 var last_sent_rotation: float
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var user_name: Label3D = $UserName
-
+@onready var label_user_name: Label3D = $UserName
 
 func _ready() -> void:
 	target_remote_position = global_position
@@ -39,6 +38,7 @@ func _physics_process(delta: float):
 	else:
 		global_position = global_position.lerp(target_remote_position, 0.2)
 		rotation_degrees.y = lerp(rotation_degrees.y, target_remote_rotation, 0.2)
+		label_user_name.position = lerp(label_user_name.position, position + Vector3.UP * 2.8, user_name_weight)
 
 func _process_local_input(delta):
 	var direction = Vector3.ZERO
@@ -85,7 +85,7 @@ func _process_local_input(delta):
 	velocity.z = lerp(velocity.z, target_velocity.z, 0.15)
 
 	move_and_slide()
-	user_name.position = lerp(user_name.position, position + Vector3.UP * 2.8, user_name_weight)
+	label_user_name.position = lerp(label_user_name.position, position + Vector3.UP * 2.8, user_name_weight)
 	$CameraController.position = lerp($CameraController.position, position, camera_weight)
 		
 func update_remote_state(data):
