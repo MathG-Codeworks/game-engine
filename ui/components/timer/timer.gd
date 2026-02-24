@@ -4,10 +4,13 @@ extends Control
 
 func _ready():
 	CountdownManager.countdown_updated.connect(_on_time_changed)
-	CountdownManager.countdown_finished.connect(_on_finished)
+	#CountdownManager.countdown_finished.connect(_on_finished)
 
 func _on_time_changed(time_left: int):
-	label.text = format_time(time_left)
+	if CountdownManager.is_restart_phase:
+		label.text = "Reinicia en %d" % time_left
+	else:
+		label.text = "%02d" % time_left
 
 func _on_finished():
 	label.text = "00:00"

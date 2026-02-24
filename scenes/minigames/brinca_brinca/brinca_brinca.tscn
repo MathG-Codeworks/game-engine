@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bs8nwyqhxg6pv" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gd" id="1_yciyb"]
 [ext_resource type="PackedScene" uid="uid://bsegrhtpcoeud" path="res://ui/components/timer/timer.tscn" id="2_oxyvo"]
+[ext_resource type="PackedScene" uid="uid://dpeiybbloq0c1" path="res://ui/components/round/round.tscn" id="3_f0w01"]
+[ext_resource type="Script" uid="uid://c8gxwrchr3lbb" path="res://ui/components/round/round.gd" id="4_cijl1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yciyb"]
 
@@ -84,5 +86,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0494311, 1.0743884, 0)
 
 [node name="Timer" parent="." unique_id=147914691 instance=ExtResource("2_oxyvo")]
+
+[node name="Round" parent="." unique_id=1177513126 instance=ExtResource("3_f0w01")]
+script = ExtResource("4_cijl1")
 
 [connection signal="body_entered" from="LoseArea3D" to="." method="_on_area_3d_body_entered"]

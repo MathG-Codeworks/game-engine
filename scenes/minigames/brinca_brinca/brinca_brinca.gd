@@ -9,18 +9,34 @@ var character_scene: PackedScene = preload("res://scenes/character/character.tsc
 
 func _ready() -> void:
 	CharacterManager.spawn_local_player()
-	CountdownManager.countdown_finished.connect(_on_time_finished)
-	CountdownManager.start(10)
+	
+	RoundManager.round_started.connect(_on_round_started)
+	RoundManager.round_finished.connect(_on_round_finished)
+	RoundManager.all_rounds_finished.connect(_on_game_finished)
+
+	RoundManager.start_game(3, 10, 15) # 3 rondas de 10 segundos 15 segundos de intervalo entre rondas
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Character:
 		body.respawn(spawn_point.global_position)
 		
-func _on_time_finished():
-	print("Se acabo el tiempo")
+func _on_round_started(round_number):
+	print("Ronda iniciada:", round_number)
 	
-	for platform in [answer_platform2,answer_platform2, answer_platform3, answer_platform4]:
+	for platform in [answer_platform2, answer_platform3, answer_platform4]:
+		platform.visible = true
+		platform.get_node("CollisionShape3D").disabled = false
+	
+
+func _on_round_finished(round_number):
+	print("Ronda terminada:", round_number)
+	
+	
+	for platform in [answer_platform2, answer_platform3, answer_platform4]:
 		platform.visible = false
 		platform.get_node("CollisionShape3D").disabled = true
+
+func _on_game_finished():
+	print("Juego terminado")
 		
