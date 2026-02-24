@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="game-engine"
 run/main_scene="uid://cl7kmf3ly5twb"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,6 +25,7 @@ Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 NetworkManager="*res://network/network_manager.gd"
 MultiplayerManager="*res://network/multiplayer_manager.gd"
 CharacterManager="*res://core/character_manager.gd"
+CountdownManager="*uid://b3bc8vr77ygg"
 
 [filesystem]
 

@@ -104,3 +104,18 @@ func update_remote_state(data):
 func flip_to(angle: float):
 	var tween = create_tween()
 	tween.tween_property(self, "rotation_degrees:y", angle, 0.15).set_trans(Tween.TRANS_SINE)
+	
+func respawn(at_position):
+	global_position = at_position
+	
+	velocity = Vector3.ZERO
+	target_velocity = Vector3.ZERO
+	
+	target_remote_position = at_position
+	target_remote_rotation = rotation_degrees.y
+	
+	last_sent_position = at_position
+	last_sent_rotation = rotation_degrees.y
+	
+	anim.stop()
+	
