@@ -1,6 +1,88 @@
-[gd_scene load_steps=2 format=3 uid="uid://lk0bxocw1teh"]
+[gd_scene format=3 uid="uid://lk0bxocw1teh"]
 
 [ext_resource type="Script" uid="uid://bs8nwyqhxg6pv" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gd" id="1_yciyb"]
+[ext_resource type="PackedScene" uid="uid://bsegrhtpcoeud" path="res://ui/components/timer/timer.tscn" id="2_oxyvo"]
 
-[node name="BrincaBrinca" type="Node2D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yciyb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oxyvo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxyvo"]
+
+[node name="BrincaBrinca" type="Node3D" unique_id=1143666910]
 script = ExtResource("1_yciyb")
+
+[node name="SpawnPlatform" type="StaticBody3D" parent="." unique_id=1727064737]
+transform = Transform3D(0.025354318, 0, -12.17937, 0, 0.38687912, 0, 3.5430977, 0, 0.08715524, 0.003305912, 0, 0.3851595)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPlatform" unique_id=379620184]
+shape = SubResource("BoxShape3D_yciyb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPlatform" unique_id=104943118]
+mesh = SubResource("BoxMesh_oxyvo")
+
+[node name="AnswerPlatform1" type="StaticBody3D" parent="." unique_id=813657236]
+transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, -4.4095483, 0, -5.6587315)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform1" unique_id=1133144509]
+shape = SubResource("BoxShape3D_yciyb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnswerPlatform1" unique_id=73687581]
+mesh = SubResource("BoxMesh_oxyvo")
+
+[node name="AnswerPlatform2" type="StaticBody3D" parent="." unique_id=1928640382]
+transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, 4.4329443, 0, -5.7220087)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform2" unique_id=250739849]
+shape = SubResource("BoxShape3D_yciyb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnswerPlatform2" unique_id=2010382386]
+transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.04084885, 0, 0)
+mesh = SubResource("BoxMesh_oxyvo")
+
+[node name="AnswerPlatform3" type="StaticBody3D" parent="." unique_id=565446987]
+transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, 4.384074, 0, -12.551289)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform3" unique_id=1886730251]
+shape = SubResource("BoxShape3D_yciyb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnswerPlatform3" unique_id=1538342173]
+mesh = SubResource("BoxMesh_oxyvo")
+
+[node name="AnswerPlatform4" type="StaticBody3D" parent="." unique_id=1388895955]
+transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, -4.4701695, 0, -12.487927)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform4" unique_id=310862566]
+shape = SubResource("BoxShape3D_yciyb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnswerPlatform4" unique_id=1976399131]
+mesh = SubResource("BoxMesh_oxyvo")
+
+[node name="QuestionScreen" type="StaticBody3D" parent="." unique_id=132052371]
+transform = Transform3D(0.0068644173, 0, -15.845309, 0, 9.52062, 0, 0.95925695, 0, 0.11338862, 0.8138356, 6.846389, -19.734459)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="QuestionScreen" unique_id=887258554]
+shape = SubResource("BoxShape3D_yciyb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionScreen" unique_id=1741918404]
+transform = Transform3D(0.99740887, 0, 1.4901161e-08, 0, 1, 0, 2.910383e-11, 0, 1.3621033, 0, 0, 0)
+mesh = SubResource("BoxMesh_oxyvo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=877676505]
+transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928472, 0.29742727, 0, 9.594474, 14.153978)
+shadow_enabled = true
+
+[node name="LoseArea3D" type="Area3D" parent="." unique_id=1883755935]
+transform = Transform3D(48.97396, 0, 0, 0, 1, 0, 0, 0, 4.4168024, 0, -21.083769, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoseArea3D" unique_id=1065060861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.485231, 0, 0, 0)
+shape = SubResource("BoxShape3D_oxyvo")
+debug_fill = false
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=867050990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0494311, 1.0743884, 0)
+
+[node name="Timer" parent="." unique_id=147914691 instance=ExtResource("2_oxyvo")]
+
+[connection signal="body_entered" from="LoseArea3D" to="." method="_on_area_3d_body_entered"]
