@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bsegrhtpcoeud"]
+
+[ext_resource type="Script" uid="uid://cbpupykrgr00m" path="res://ui/components/timer/timer.gd" id="1_qoa8k"]
+
+[node name="Timer" type="Control" unique_id=147914691]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qoa8k")
+
+[node name="Label" type="Label" parent="." unique_id=1557869727]
+layout_mode = 1
+offset_left = 22.0
+offset_top = 18.0
+offset_right = 142.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 25
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -25,6 +25,8 @@ Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 NetworkManager="*res://network/network_manager.gd"
 MultiplayerManager="*res://network/multiplayer_manager.gd"
 CharacterManager="*res://core/character_manager.gd"
+CountdownManager="*uid://b3bc8vr77ygg"
+RoundManager="*uid://cbaoykf1fo533"
 
 [filesystem]
 
