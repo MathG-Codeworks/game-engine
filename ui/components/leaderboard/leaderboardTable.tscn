@@ -9,7 +9,7 @@ script = ExtResource("3_ypgqc")
 metadata/_custom_type_script = "uid://cflospfo02sp3"
 
 [node name="leaderboardTable" type="Control"]
-custom_minimum_size = Vector2(400, 70)
+custom_minimum_size = Vector2(430, 70)
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0

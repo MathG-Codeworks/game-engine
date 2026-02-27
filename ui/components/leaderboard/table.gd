@@ -15,7 +15,7 @@ func render():
 		for child in $Rows.get_children():
 			child.queue_free()
 			
-		await get_tree().process_frame	
+		await get_tree().process_frame
 		
 	if data:
 		var rowCount = data.data.size()

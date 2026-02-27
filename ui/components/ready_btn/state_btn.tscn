@@ -26,7 +26,7 @@ theme_override_constants/margin_bottom = 14
 [node name="state_btn" type="Button" parent="MarginContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "listo"
+text = "listo!"
 script = ExtResource("1_dk77w")
 
 [connection signal="pressed" from="MarginContainer/state_btn" to="MarginContainer/state_btn" method="_on_pressed"]

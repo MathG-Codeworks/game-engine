@@ -5,7 +5,7 @@ func _ready() -> void:
 	_update_ranking_table()
 
 func _update_ranking_table():
-	var columns = ["Pos", "name", "score"]
+	var columns = ["Pos", "name", "score", "ready?"]
 	var data = []
 	
 	for i in range(MultiplayerManager.ranking_players.size()):
@@ -13,7 +13,8 @@ func _update_ranking_table():
 		data.append([
 			i + 1,
 			player.username,
-			player.score
+			player.score,
+			"Listo!" if player.ready else "Gallina"
 		])
 		
 	if data.is_empty():
