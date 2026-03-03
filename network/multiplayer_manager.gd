@@ -6,6 +6,7 @@ signal started
 signal ranking_updated
 signal countdown_updated
 signal game_started
+signal game_loaded
 
 var match_id : String
 var match_code : String
@@ -22,6 +23,7 @@ const UNREADY_OP_CODE = 4
 const COUNTDOWN_OP_CODE = 5
 const COUNTDOWN_CANCELLED_OP_CODE = 6
 const GAME_STARTED_OP_CODE = 7
+const GAME_LOADED_OP_CODE = 8
 	
 func start_match():
 	var result = await NetworkManager.socket.rpc_async("create_match", "")
@@ -115,6 +117,10 @@ func _on_match_state(state):
 		GAME_STARTED_OP_CODE:
 			game_started.emit()
 			
+		GAME_LOADED_OP_CODE:
+			var minigame := int(JSON.parse_string(state.data).minigame)
+			game_loaded.emit(minigame)
+			
 func _on_presence(event):
 	for join in event.joins:
 		if join.user_id != NetworkManager.session.user_id:
@@ -158,5 +164,20 @@ func mark_player_ready(ready: bool):
 	NetworkManager.client.rpc_async(
 		NetworkManager.session, 
 		"set_player_ready" if ready else "set_player_unready", 
+		payload
+	)
+
+func send_minigame_loaded(minigame: int):
+	if match_id == "":
+		return
+		
+	var payload = JSON.stringify({
+		"matchId": match_id,
+		"minigame": minigame
+	})
+	
+	NetworkManager.client.rpc_async(
+		NetworkManager.session,
+		"scene_loaded",
 		payload
 	)

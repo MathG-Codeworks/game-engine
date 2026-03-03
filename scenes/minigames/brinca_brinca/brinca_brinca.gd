@@ -16,7 +16,6 @@ func _ready() -> void:
 
 	RoundManager.start_game(3, 10, 15) # 3 rondas de 10 segundos 15 segundos de intervalo entre rondas
 
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Character:
 		body.respawn(spawn_point.global_position)
@@ -27,11 +26,9 @@ func _on_round_started(round_number):
 	for platform in [answer_platform2, answer_platform3, answer_platform4]:
 		platform.visible = true
 		platform.get_node("CollisionShape3D").disabled = false
-	
 
 func _on_round_finished(round_number):
 	print("Ronda terminada:", round_number)
-	
 	
 	for platform in [answer_platform2, answer_platform3, answer_platform4]:
 		platform.visible = false

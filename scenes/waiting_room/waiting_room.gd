@@ -15,14 +15,5 @@ func _on_countdown_updated():
 		
 	label_countdown.text = str(int(MultiplayerManager.countdown)) if MultiplayerManager.countdown != null else "5"
 
-func _on_game_started():
-	get_tree().paused = true
-	
-	var root = get_tree().root
-	for child in root.get_children():
-		if child != get_tree().current_scene and child.name != "loading":
-			if not child.is_in_group("persistent"):
-				child.queue_free()
-	
-	get_tree().paused = false
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/minigames/brinca_brinca/loading.tscn")
+func _on_game_started():	
+	get_tree().change_scene_to_file("res://scenes/minigames/brinca_brinca/loading.tscn")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnmayae77ric1"]
 
-[node name="TableCell" type="Label" unique_id=890993218]
+[node name="TableCell" type="Label"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -8,6 +8,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.6509804)
+theme_override_constants/outline_size = 1
 text = "center"
 horizontal_alignment = 1
 vertical_alignment = 1

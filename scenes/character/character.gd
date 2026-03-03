@@ -9,6 +9,7 @@ var target_velocity: Vector3 = Vector3.ZERO
 var facing_angle: float = -90
 var camera_weight: float = 0.1
 var user_name_weight: float = 0.45
+var underline_user_name_weight: float = 0.375
 var is_local_player : bool = false
 var target_remote_position: Vector3
 var target_remote_rotation: float
@@ -17,6 +18,7 @@ var last_sent_rotation: float
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var label_user_name: Label3D = $UserName
+@onready var underline_user_name: MeshInstance3D = $Underline
 
 func _ready() -> void:
 	target_remote_position = global_position
@@ -30,15 +32,16 @@ func _physics_process(delta: float):
 		
 		_process_local_input(delta)
 		if global_position.distance_to(last_sent_position) > 0.1 or abs(rotation_degrees.y - last_sent_rotation) > 1:
-			if Engine.get_physics_frames() % 5 == 0:
-				var current_anim = anim.current_animation if anim.is_playing() else ""
-				MultiplayerManager._send_player_state(global_position, rotation_degrees.y, current_anim)
-				last_sent_position = global_position
-				last_sent_rotation = rotation_degrees.y
+			#if Engine.get_physics_frames() % 5 == 0:
+			var current_anim = anim.current_animation if anim.is_playing() else ""
+			MultiplayerManager._send_player_state(global_position, rotation_degrees.y, current_anim)
+			last_sent_position = global_position
+			last_sent_rotation = rotation_degrees.y
 	else:
 		global_position = global_position.lerp(target_remote_position, 0.2)
 		rotation_degrees.y = lerp(rotation_degrees.y, target_remote_rotation, 0.2)
 		label_user_name.position = lerp(label_user_name.position, position + Vector3.UP * 2.8, user_name_weight)
+		underline_user_name.position = lerp(underline_user_name.position, position + Vector3.UP * 2.5, underline_user_name_weight)
 
 func _process_local_input(delta):
 	var direction = Vector3.ZERO
@@ -86,6 +89,7 @@ func _process_local_input(delta):
 
 	move_and_slide()
 	label_user_name.position = lerp(label_user_name.position, position + Vector3.UP * 2.8, user_name_weight)
+	underline_user_name.position = lerp(underline_user_name.position, position + Vector3.UP * 2.5, underline_user_name_weight)
 	$CameraController.position = lerp($CameraController.position, position, camera_weight)
 		
 func update_remote_state(data):
@@ -119,3 +123,21 @@ func respawn(at_position):
 	
 	anim.stop()
 	
+func set_label(value: String):
+	label_user_name.text = value
+	await get_tree().process_frame
+	_update_underline_width()
+	
+func set_underline(color: Color):
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = color
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	underline_user_name.material_override = mat
+	underline_user_name.visible = true
+
+func _update_underline_width():
+	var aabb = label_user_name.get_aabb()
+	var width = aabb.size.x
+	var mesh := underline_user_name.mesh as QuadMesh
+	
+	mesh.size.x = width
