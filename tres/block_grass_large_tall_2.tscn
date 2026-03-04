@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1g7cvctblgfn"]
+
+[ext_resource type="PackedScene" uid="uid://bj4tvnuyl1hp2" path="res://Terreno/block-grass-large-tall.glb" id="1_hc0c6"]
+[ext_resource type="ArrayMesh" uid="uid://dfqrw7wkvpsvp" path="res://tres/Suelolobbyprueba.tres" id="2_nxcp2"]
+
+[node name="block-grass-large-tall2" unique_id=1996931045 instance=ExtResource("1_hc0c6")]
+
+[node name="block-grass-large-tall" parent="." index="0" unique_id=793485262]
+mesh = ExtResource("2_nxcp2")

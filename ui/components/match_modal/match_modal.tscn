@@ -1,35 +1,40 @@
 [gd_scene format=3 uid="uid://c7ns3egbmiyk"]
 
 [ext_resource type="Script" uid="uid://d11214lr8gx6m" path="res://ui/components/match_modal/match_modal.gd" id="1_uwbdd"]
+[ext_resource type="Texture2D" uid="uid://cdoap0gwcl4se" path="res://ui/components/match_modal/panel-transparent-center-027.png" id="2_kwrwe"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="3_kwrwe"]
 
-[sub_resource type="FontFile" id="FontFile_uwbdd"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/18/0/ascent = 0.0
-cache/0/18/0/descent = 0.0
-cache/0/18/0/underline_position = 0.0
-cache/0/18/0/underline_thickness = 0.0
-cache/0/18/0/scale = 1.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwrwe"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.18039216, 0.0627451, 0.39607844, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8nc55"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_47hs5"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpjp8"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
 
 [node name="MatchModal" type="Control" unique_id=820398262]
 layout_mode = 3
@@ -52,6 +57,7 @@ mouse_filter = 0
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=1675389977]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kwrwe")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=1961221403]
 layout_mode = 1
@@ -74,9 +80,11 @@ theme_override_constants/separation = 15
 clip_contents = true
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.6666667, 1, 1)
 theme_override_constants/caret_width = 1
-theme_override_fonts/font = SubResource("FontFile_uwbdd")
+theme_override_fonts/font = ExtResource("3_kwrwe")
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_8nc55")
 placeholder_text = "CODIGO..."
 alignment = 1
 clear_button_enabled = true
@@ -84,12 +92,18 @@ clear_button_enabled = true
 [node name="ButtonJoin" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer" unique_id=1251990734]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8784314, 0.6666667, 1, 1)
+theme_override_fonts/font = ExtResource("3_kwrwe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_47hs5")
 text = "UNIRSE
 "
 
 [node name="ButtonCreate" type="Button" parent="CenterContainer/Panel/MarginContainer/HBoxContainer" unique_id=466422686]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8784314, 0.6666667, 1, 1)
+theme_override_fonts/font = ExtResource("3_kwrwe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dpjp8")
 text = "CREAR SALA"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
