@@ -19,8 +19,8 @@ func spawn_local_player():
 	get_tree().current_scene.add_child(character)
 
 	character.is_local_player = true
-	character.set_label(NetworkManager.session.username)
-	MultiplayerManager.players[NetworkManager.session.user_id] = character
+	#character.set_label(NetworkManager.session.username)
+	#MultiplayerManager.players[NetworkManager.session.user_id] = character
 
 func spawn_pending_players():
 	for player in MultiplayerManager.pending_players:
