@@ -15,13 +15,13 @@ func _update_ranking_table():
 		var player = MultiplayerManager.ranking_players[i]
 		print(player)
 		data.append([
-			player.userId, #Oculto
+			player.user_id, #Oculto
 			i + 1,
 			player.username,
 			player.score,
 			"Listo!" if player.ready else "Gallina"
 		])
-		colors[player.userId] = player.color
+		colors[player.user_id] = player.color
 		
 	if data.is_empty():
 		data = [["0", "-", "Sin jugadores", 0, ""]]

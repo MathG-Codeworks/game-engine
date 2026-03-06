@@ -27,10 +27,10 @@ func _start_next_round():
 	
 	if current_round > max_rounds:
 		is_running = false
-		emit_signal("all_rounds_finished")
+		all_rounds_finished.emit()
 		return
-	
-	emit_signal("round_started", current_round)
+		
+	round_started.emit(current_round)
 	CountdownManager.start(round_duration)
 
 func finish_round():

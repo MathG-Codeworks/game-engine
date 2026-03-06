@@ -23,7 +23,7 @@ const UNREADY_OP_CODE = 4
 const COUNTDOWN_OP_CODE = 5
 const COUNTDOWN_CANCELLED_OP_CODE = 6
 const GAME_STARTED_OP_CODE = 7
-const GAME_LOADED_OP_CODE = 8
+const EXERCISES_LOADED_OP_CODE = 8
 	
 func start_match():
 	var result = await NetworkManager.socket.rpc_async("create_match", "")
@@ -115,11 +115,15 @@ func _on_match_state(state):
 			countdown_updated.emit()
 			
 		GAME_STARTED_OP_CODE:
+			for player in ranking_players:
+				_remove_player(player.user_id)
 			game_started.emit()
 			
-		GAME_LOADED_OP_CODE:
-			var minigame := int(JSON.parse_string(state.data).minigame)
-			game_loaded.emit(minigame)
+		EXERCISES_LOADED_OP_CODE:
+			var data = JSON.parse_string(state.data)
+			MinigameManager.current_minigame = int(data.minigame)
+			MinigameManager.exercises = data.exercises
+			game_loaded.emit()
 			
 func _on_presence(event):
 	for join in event.joins:
@@ -128,12 +132,12 @@ func _on_presence(event):
 			spawned.emit()
 	
 	for leave in event.leaves:
-		_remove_player(leave)
+		_remove_player(leave.user_id)
 		
-func _remove_player(player):
-	if players.has(player.user_id):
-		players[player.user_id].queue_free()
-		players.erase(player.user_id)
+func _remove_player(user_id: String):
+	if players.has(user_id):
+		players[user_id].queue_free()
+		players.erase(user_id)
 		
 func _send_player_state(position: Vector3, rotation_y: float, anim_name: String = ""):
 	if match_id == "":

@@ -57,5 +57,4 @@ font_size = 72
 [node name="Underline" type="MeshInstance3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 0.0613451, 0, 0, 0, 1, 0, 2.5547962, 0)
 top_level = true
-visible = false
 mesh = SubResource("QuadMesh_mutn8")

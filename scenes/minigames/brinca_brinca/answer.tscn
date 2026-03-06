@@ -1,29 +1,29 @@
-[gd_scene format=3 uid="uid://dk6n0vqjg8jlb"]
+[gd_scene load_steps=2 format=3 uid="uid://dk6n0vqjg8jlb"]
 
 [ext_resource type="Script" uid="uid://cabho7fhqbt6p" path="res://scenes/minigames/brinca_brinca/answer.gd" id="1_6ours"]
 
-[node name="Answer" type="Node3D" unique_id=1864493739]
+[node name="Answer" type="Node3D"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_6ours")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1593651575]
+[node name="Label3D" type="Label3D" parent="."]
 text = "a. 5x + 1"
 font_size = 10
 outline_size = 6
 
-[node name="Label3D2" type="Label3D" parent="." unique_id=923939331]
+[node name="Label3D2" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29694808, 0, 1.2980013e-08)
 text = "A. 5x + 4"
 font_size = 10
 outline_size = 6
 
-[node name="Label3D3" type="Label3D" parent="." unique_id=1107648837]
+[node name="Label3D3" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61387354, 0, 2.6833264e-08)
 text = "A. 5x + 4"
 font_size = 10
 outline_size = 6
 
-[node name="Label3D4" type="Label3D" parent="." unique_id=824476458]
+[node name="Label3D4" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92144203, 0, 4.027751e-08)
 text = "A. 5x + 4"
 font_size = 10

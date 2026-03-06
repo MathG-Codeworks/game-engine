@@ -32,7 +32,6 @@ func _physics_process(delta: float):
 		
 		_process_local_input(delta)
 		if global_position.distance_to(last_sent_position) > 0.1 or abs(rotation_degrees.y - last_sent_rotation) > 1:
-			#if Engine.get_physics_frames() % 5 == 0:
 			var current_anim = anim.current_animation if anim.is_playing() else ""
 			MultiplayerManager._send_player_state(global_position, rotation_degrees.y, current_anim)
 			last_sent_position = global_position

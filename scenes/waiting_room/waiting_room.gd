@@ -15,5 +15,5 @@ func _on_countdown_updated():
 		
 	label_countdown.text = str(int(MultiplayerManager.countdown)) if MultiplayerManager.countdown != null else "5"
 
-func _on_game_started():	
+func _on_game_started():
 	get_tree().change_scene_to_file("res://scenes/minigames/brinca_brinca/loading.tscn")

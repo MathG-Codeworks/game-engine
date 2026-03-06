@@ -5,19 +5,16 @@ extends Node3D
 @onready var answer3: Label3D = $Label3D3 
 @onready var answer4: Label3D = $Label3D4
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func assing_option(options: Array, platforms: Array[StaticBody3D]):
 	var labels = [answer1, answer2, answer3, answer4]
-	options.shuffle()
 	var correct_platform: StaticBody3D
+	
 	for i in range(options.size()):
 		var platform = platforms[i]
 		var option = options[i]

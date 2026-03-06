@@ -8,8 +8,8 @@ func _ready() -> void:
 
 func _on_ranking_updated():
 	for ranking_player in MultiplayerManager.ranking_players:
-		if MultiplayerManager.players.has(ranking_player.userId):
-			var character = MultiplayerManager.players[ranking_player.userId]
+		if MultiplayerManager.players.has(ranking_player.user_id):
+			var character = MultiplayerManager.players[ranking_player.user_id]
 			
 			if character:
 				character.set_underline(ranking_player.color)
@@ -19,14 +19,18 @@ func spawn_local_player():
 	get_tree().current_scene.add_child(character)
 
 	character.is_local_player = true
-	#character.set_label(NetworkManager.session.username)
-	#MultiplayerManager.players[NetworkManager.session.user_id] = character
+	character.set_label(NetworkManager.session.username)
+	MultiplayerManager.players[NetworkManager.session.user_id] = character
 
 func spawn_pending_players():
 	for player in MultiplayerManager.pending_players:
 		spawn_player(player)
 	
 	MultiplayerManager.pending_players.clear()
+	
+func spawn_ranking_players():
+	for player in MultiplayerManager.ranking_players:
+		spawn_player(player)
 
 func spawn_player(player):
 	if MultiplayerManager.players.has(player.user_id):
