@@ -24,6 +24,7 @@ const COUNTDOWN_OP_CODE = 5
 const COUNTDOWN_CANCELLED_OP_CODE = 6
 const GAME_STARTED_OP_CODE = 7
 const EXERCISES_LOADED_OP_CODE = 8
+const EVALUATE_ANSWER_OP_CODE = 9
 	
 func start_match():
 	var result = await NetworkManager.socket.rpc_async("create_match", "")
@@ -121,8 +122,12 @@ func _on_match_state(state):
 			
 		EXERCISES_LOADED_OP_CODE:
 			var data = JSON.parse_string(state.data)
-			MinigameManager.current_minigame = int(data.minigame)
-			MinigameManager.exercises = data.exercises
+			MinigameManager.update(
+				int(data.minigame),
+				data.exercises,
+				int(data.round_duration),
+				int(data.round_intermission)
+			)
 			game_loaded.emit()
 			
 func _on_presence(event):
@@ -157,7 +162,7 @@ func _send_player_state(position: Vector3, rotation_y: float, anim_name: String 
 		JSON.stringify(data)
 	)
 
-func mark_player_ready(ready: bool):
+func mark_player_ready(p_ready: bool):
 	if match_id == "":
 		return
 		
@@ -167,7 +172,7 @@ func mark_player_ready(ready: bool):
 	
 	NetworkManager.client.rpc_async(
 		NetworkManager.session, 
-		"set_player_ready" if ready else "set_player_unready", 
+		"set_player_ready" if p_ready else "set_player_unready", 
 		payload
 	)
 
