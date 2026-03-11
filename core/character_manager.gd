@@ -40,6 +40,6 @@ func spawn_player(player):
 	add_child(character)
 	
 	character.is_local_player = player.user_id == NetworkManager.session.user_id
-	character.label_user_name.text = player.username
+	character.set_label(player.username)
 	MultiplayerManager.players[player.user_id] = character
 	_on_ranking_updated()

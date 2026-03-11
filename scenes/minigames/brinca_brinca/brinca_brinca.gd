@@ -22,6 +22,7 @@ var character_scene: PackedScene = preload("res://scenes/character/character.tsc
 const ANSWER_SCENE = preload("res://scenes/minigames/brinca_brinca/answer.tscn")
 
 func _ready() -> void:
+	CharacterManager.spawn_local_player()
 	CharacterManager.spawn_ranking_players()
 	
 	RoundManager.round_started.connect(_on_round_started)
