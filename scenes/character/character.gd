@@ -21,6 +21,7 @@ var last_sent_rotation: float
 @onready var underline_user_name: MeshInstance3D = $Underline
 
 func _ready() -> void:
+	add_to_group("players")
 	target_remote_position = global_position
 	target_remote_rotation = rotation_degrees.y
 
