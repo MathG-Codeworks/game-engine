@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://lk0bxocw1teh"]
+[gd_scene format=3 uid="uid://lk0bxocw1teh"]
 
 [ext_resource type="Script" uid="uid://bs8nwyqhxg6pv" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gd" id="1_yciyb"]
 [ext_resource type="PackedScene" uid="uid://dk6n0vqjg8jlb" path="res://scenes/minigames/brinca_brinca/answer.tscn" id="2_2ey3y"]
+[ext_resource type="PackedScene" uid="uid://bwcuopnxu408q" path="res://scenes/minigames/brinca_brinca/platform.tscn" id="2_mjjrl"]
 [ext_resource type="PackedScene" uid="uid://bsegrhtpcoeud" path="res://ui/components/timer/timer.tscn" id="2_oxyvo"]
 [ext_resource type="PackedScene" uid="uid://dpeiybbloq0c1" path="res://ui/components/round/round.tscn" id="3_f0w01"]
 [ext_resource type="Script" uid="uid://c8gxwrchr3lbb" path="res://ui/components/round/round.gd" id="4_cijl1"]
@@ -11,147 +12,86 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_oxyvo"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ey3y"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxyvo"]
 
-[node name="BrincaBrinca" type="Node3D"]
+[node name="BrincaBrinca" type="Node3D" unique_id=1624046362]
 script = ExtResource("1_yciyb")
 
-[node name="SpawnPlatform" type="StaticBody3D" parent="."]
+[node name="SpawnPlatform" type="StaticBody3D" parent="." unique_id=1655493477]
 transform = Transform3D(0.025354318, 0, -12.17937, 0, 0.38687912, 0, 3.5430977, 0, 0.08715524, 0.003305912, 0, 0.3851595)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPlatform"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPlatform" unique_id=1335211126]
 shape = SubResource("BoxShape3D_yciyb")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPlatform"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPlatform" unique_id=618161073]
 mesh = SubResource("BoxMesh_oxyvo")
 
-[node name="AnswerPlatform1" type="StaticBody3D" parent="."]
-transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, -4.4095483, 0, -5.6587315)
+[node name="PlatformA" parent="." unique_id=387782102 instance=ExtResource("2_mjjrl")]
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, -4.41, 0, -5.659)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform1"]
-shape = SubResource("BoxShape3D_yciyb")
+[node name="PlatformB" parent="." unique_id=1819267468 instance=ExtResource("2_mjjrl")]
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, 4.433, 0, -5.722)
 
-[node name="Platform1" type="MeshInstance3D" parent="AnswerPlatform1"]
-mesh = SubResource("BoxMesh_oxyvo")
+[node name="PlatformC" parent="." unique_id=240454240 instance=ExtResource("2_mjjrl")]
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, -4.515, 0, -12.551)
 
-[node name="Label3D" type="Label3D" parent="AnswerPlatform1"]
-transform = Transform3D(-6.89043e-08, 0, 1.0041242, 0, 13.903914, 0, -1.5763466, 0, -4.389166e-08, 0, 4.1773915, 0)
-text = "A"
-font_size = 52
+[node name="PlatformD" parent="." unique_id=1192031729 instance=ExtResource("2_mjjrl")]
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, 4.464, 0, -12.488)
 
-[node name="Area3D" type="Area3D" parent="AnswerPlatform1"]
-transform = Transform3D(1, 0, -1.3969839e-08, 0, 8.151438, 0, 0, 0, 1, 0, 3.6161005, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform1/Area3D"]
-transform = Transform3D(0.99999714, 0, 0, 0, 0.99999714, 0, 0, 0, 0.99999976, 0, 0, 0)
-shape = SubResource("BoxShape3D_2ey3y")
-
-[node name="AnswerPlatform2" type="StaticBody3D" parent="."]
-transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, 4.4329443, 0, -5.7220087)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform2"]
-transform = Transform3D(1, 0, -9.313226e-10, 0, 1.0000001, 0, 0, 0, 1, -0.040504932, 0, -0.00021672249)
-shape = SubResource("BoxShape3D_yciyb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AnswerPlatform2"]
-transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.04084885, 0, 0)
-mesh = SubResource("BoxMesh_oxyvo")
-
-[node name="Label3D" type="Label3D" parent="AnswerPlatform2"]
-transform = Transform3D(-6.89043e-08, 0, 1.0041242, 0, 13.903914, 0, -1.5763466, 0, -4.389166e-08, 0, 4.1773915, 0)
-text = "B"
-font_size = 52
-
-[node name="Area3D" type="Area3D" parent="AnswerPlatform2"]
-transform = Transform3D(1, 0, -1.3969839e-08, 0, 8.151438, 0, 0, 0, 1, 0, 3.6161005, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform2/Area3D"]
-transform = Transform3D(0.999997, 0, 0, 0, 0.99999696, 0, -4.656613e-10, 0, 0.99999976, -0.042589903, 0, -0.00022786856)
-shape = SubResource("BoxShape3D_2ey3y")
-
-[node name="AnswerPlatform3" type="StaticBody3D" parent="."]
-transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, -4.515253, 0, -12.551289)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform3"]
-shape = SubResource("BoxShape3D_yciyb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AnswerPlatform3"]
-mesh = SubResource("BoxMesh_oxyvo")
-
-[node name="Label3D" type="Label3D" parent="AnswerPlatform3"]
-transform = Transform3D(-6.89043e-08, 0, 1.0041242, 0, 13.903914, 0, -1.5763466, 0, -4.389166e-08, 0, 4.1773915, 0)
-text = "C"
-font_size = 52
-
-[node name="Area3D" type="Area3D" parent="AnswerPlatform3"]
-transform = Transform3D(1, 0, -1.3969839e-08, 0, 8.151438, 0, 0, 0, 1, 0, 3.6161005, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform3/Area3D"]
-transform = Transform3D(0.99999714, 0, 0, 0, 0.99999714, 0, 0, 0, 0.99999976, 0, 0, 0)
-shape = SubResource("BoxShape3D_2ey3y")
-
-[node name="AnswerPlatform4" type="StaticBody3D" parent="."]
-transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, 4.4639444, 0, -12.487927)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform4"]
-shape = SubResource("BoxShape3D_yciyb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AnswerPlatform4"]
-mesh = SubResource("BoxMesh_oxyvo")
-
-[node name="Label3D" type="Label3D" parent="AnswerPlatform4"]
-transform = Transform3D(-6.89043e-08, 0, 1.0041242, 0, 13.903914, 0, -1.5763466, 0, -4.389166e-08, 0, 4.1773915, 0)
-text = "D"
-font_size = 52
-
-[node name="Area3D" type="Area3D" parent="AnswerPlatform4"]
-transform = Transform3D(1, 0, -1.3969839e-08, 0, 8.151438, 0, 0, 0, 1, 0, 3.6161005, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnswerPlatform4/Area3D"]
-transform = Transform3D(0.99999714, 0, 0, 0, 0.99999714, 0, 0, 0, 0.99999976, 0, 0, 0)
-shape = SubResource("BoxShape3D_2ey3y")
-
-[node name="QuestionScreen" type="StaticBody3D" parent="."]
+[node name="QuestionScreen" type="StaticBody3D" parent="." unique_id=869857431]
 transform = Transform3D(0.0068644173, 0, -15.845308, 0, 9.52062, 0, 0.95925695, 0, 0.11338861, 0.8138356, 6.846389, -19.734459)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="QuestionScreen"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="QuestionScreen" unique_id=800885049]
 shape = SubResource("BoxShape3D_yciyb")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionScreen"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionScreen" unique_id=19318133]
 transform = Transform3D(1, 0, -3.9859692e-11, 0, 1.003, 0, 2.917986e-11, 0, 1.366, 0, 0, 0)
 mesh = SubResource("BoxMesh_oxyvo")
 
-[node name="ExerciseScreen" type="Label3D" parent="QuestionScreen"]
+[node name="ExerciseScreen" type="Label3D" parent="QuestionScreen" unique_id=807018670]
 transform = Transform3D(-8.940697e-08, 0, 1.0000005, 0, 1, 0, -0.99999976, 0, -4.3481123e-08, 0.5127907, 0.2786401, 0.00022215396)
 text = "F(x) = 2x + 5"
 font_size = 25
 outline_size = 10
 
-[node name="Answer" parent="QuestionScreen" instance=ExtResource("2_2ey3y")]
+[node name="Answer" parent="QuestionScreen" unique_id=1239313563 instance=ExtResource("2_2ey3y")]
 transform = Transform3D(-6.7055225e-08, 0, 0.9999997, 0, 1, 0, -0.9999994, 0, -4.339381e-08, 0.506567, -0.23236477, 0.4474266)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1281701433]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928472, 0.29742727, 0, 9.594474, 14.153978)
 shadow_enabled = true
 
-[node name="LoseArea3D" type="Area3D" parent="."]
+[node name="LoseArea3D" type="Area3D" parent="." unique_id=431374238]
 transform = Transform3D(48.97396, 0, 0, 0, 1, 0, 0, 0, 4.4168024, 0, -21.083769, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LoseArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoseArea3D" unique_id=971735503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.485231, 0, 0, 0)
 shape = SubResource("BoxShape3D_oxyvo")
 debug_fill = false
 
-[node name="SpawnPoint" type="Marker3D" parent="."]
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=811122832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0494311, 1.0743884, 0)
 
-[node name="Timer" parent="." instance=ExtResource("2_oxyvo")]
+[node name="Timer" parent="." unique_id=433603445 instance=ExtResource("2_oxyvo")]
 
-[node name="Round" parent="." instance=ExtResource("3_f0w01")]
+[node name="Round" parent="." unique_id=1454832979 instance=ExtResource("3_f0w01")]
 script = ExtResource("4_cijl1")
 
-[node name="leaderboardTable" parent="." instance=ExtResource("6_bjo2o")]
+[node name="leaderboardTable" parent="." unique_id=454723013 instance=ExtResource("6_bjo2o")]
+anchors_preset = -1
+anchor_left = 0.31500003
+anchor_top = 0.21700001
+anchor_right = 0.688
+anchor_bottom = 0.31800002
+offset_left = 0.1199646
+offset_top = -4.6159973
+offset_right = 0.4239502
+offset_bottom = -0.06401062
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+
+[node name="SpectatorCamera3D" type="Camera3D" parent="." unique_id=1520097101]
+transform = Transform3D(1, 0, 0, 0, 0.9217075, 0.38788563, 0, -0.38788563, 0.9217075, 0, 5.230862, 5.386362)
 
 [connection signal="body_entered" from="LoseArea3D" to="." method="_on_area_3d_body_entered"]

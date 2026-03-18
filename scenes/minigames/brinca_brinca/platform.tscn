@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwcuopnxu408q"]
+
+[ext_resource type="Script" uid="uid://d820qly73wn1" path="res://scenes/minigames/brinca_brinca/platform.gd" id="1_a2njh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4db6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2njh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5vya"]
+material = SubResource("StandardMaterial3D_a2njh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2warj"]
+
+[node name="Platform" type="StaticBody3D"]
+transform = Transform3D(0.025637193, 0, -4.791453, 0, 0.38687912, 0, 3.5826275, 0, 0.034287505, 0, 0, 0)
+script = ExtResource("1_a2njh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_v4db6")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_i5vya")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-6.89043e-08, 0, 1.0041242, 0, 13.903914, 0, -1.5763466, 0, -4.389166e-08, 0, 4.1773915, 0)
+text = "A"
+font_size = 52
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 8.151438, 0, 0, 0, 1, 0, 3.6161005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.99999714, 0, 0, 0, 0.99999714, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_2warj")
