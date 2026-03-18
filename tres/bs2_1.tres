@@ -1,0 +1,40 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://byr1qwff6o87m"]
+
+[ext_resource type="Texture2D" uid="uid://1wx2v1ke2h5v" path="res://scenes/waiting_room/Textures/colormap.png" id="1_mgtvk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhms0"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_mgtvk")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l0iyv"]
+_surfaces = [{
+"aabb": AABB(-2, -3.2059307e-31, -2, 4, 1e-05, 4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAQAAAAIAAwACAAAAAgADAAAA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAP//AAD//wAAAAAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "template-floor_template-floor"
+_surfaces = [{
+"aabb": AABB(-2, -3.2059307e-31, -2, 4, 1e-05, 4),
+"attribute_data": PackedByteArray("R2FHAbeeRwG3nrg+R2G4PreeRwFHYUcBt564PkdhuD4="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABwAGAAUA"),
+"material": SubResource("StandardMaterial3D_vhms0"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAA/////wAAAAD/////AAD/////AAAAAP///////wAAAAAAAAAAAAAAAAAA//8AAP//AAAAAAAA//8AAP9//7//f/+//3//v/9//7//f/8//3//P/9//z//f/8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l0iyv")

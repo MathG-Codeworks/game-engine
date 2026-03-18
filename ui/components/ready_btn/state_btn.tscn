@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bju42pfe5vvey"]
+[gd_scene format=3 uid="uid://bju42pfe5vvey"]
 
 [ext_resource type="Script" uid="uid://vtj0xi81e33a" path="res://ui/components/ready_btn/state_btn.gd" id="1_dk77w"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="1_yl7ha"]
+[ext_resource type="Texture2D" uid="uid://cdoap0gwcl4se" path="res://ui/components/match_modal/panel-transparent-center-027.png" id="2_o2sjl"]
 
-[node name="StateBtn" type="Control"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xi7cc"]
+texture = ExtResource("2_o2sjl")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[node name="StateBtn" type="Control" unique_id=833618035]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 3
 anchors_preset = 3
@@ -13,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=320997192]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,9 +33,11 @@ grow_vertical = 2
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 14
 
-[node name="state_btn" type="Button" parent="MarginContainer"]
+[node name="state_btn" type="Button" parent="MarginContainer" unique_id=1488786214]
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("1_yl7ha")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xi7cc")
 text = "listo!"
 script = ExtResource("1_dk77w")
 

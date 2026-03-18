@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj3yxctpyjyyo"]
+[gd_scene format=3 uid="uid://bj3yxctpyjyyo"]
 
 [ext_resource type="Script" uid="uid://cdfmp8py2hcem" path="res://ui/components/match_code/match_code.gd" id="1_jqffh"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="2_myllv"]
+[ext_resource type="Texture2D" uid="uid://cdoap0gwcl4se" path="res://ui/components/match_modal/panel-transparent-center-027.png" id="3_myllv"]
 
-[node name="MatchCode" type="Control"]
-clip_contents = true
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7x32e"]
+texture = ExtResource("3_myllv")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[node name="MatchCode" type="Control" unique_id=174050561]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 100.0
@@ -11,7 +20,7 @@ offset_bottom = 50.0
 mouse_filter = 1
 script = ExtResource("1_jqffh")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=93770811]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +30,9 @@ grow_vertical = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 14
 
-[node name="ButtonCode" type="Button" parent="MarginContainer"]
+[node name="ButtonCode" type="Button" parent="MarginContainer" unique_id=1215931803]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myllv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7x32e")
 
 [connection signal="pressed" from="MarginContainer/ButtonCode" to="." method="_on_button_code_pressed"]

@@ -1,73 +1,408 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqe21ebw8kv0b"]
+[gd_scene format=3 uid="uid://cqe21ebw8kv0b"]
 
 [ext_resource type="Script" uid="uid://2jvclhomn6eo" path="res://scenes/waiting_room/waiting_room.gd" id="1_1yeck"]
 [ext_resource type="PackedScene" uid="uid://bj3yxctpyjyyo" path="res://ui/components/match_code/match_code.tscn" id="2_676s3"]
+[ext_resource type="ArrayMesh" uid="uid://byr1qwff6o87m" path="res://tres/bs2_1.tres" id="2_muwfm"]
 [ext_resource type="PackedScene" uid="uid://bel7j8cw4x5nj" path="res://ui/components/leaderboard/leaderboardTable.tscn" id="3_qax70"]
 [ext_resource type="PackedScene" uid="uid://bju42pfe5vvey" path="res://ui/components/ready_btn/state_btn.tscn" id="4_wy88x"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="6_a00mo"]
+[ext_resource type="PackedScene" uid="uid://c0pylbasd6qlw" path="res://scenes/waiting_room/wall-banner.glb" id="7_f86l8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1yeck"]
-size = Vector3(30, 1, 30)
-
-[sub_resource type="BoxMesh" id="BoxMesh_676s3"]
 size = Vector3(30, 1, 30)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wy88x"]
 size = Vector3(0.098082274, 3.8, 1.15)
 
-[node name="WaitingRoom" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_f86l8"]
+size = Vector3(1.0237427, 4.928772, 33.167007)
+
+[node name="WaitingRoom" type="Node3D" unique_id=2022545015]
 script = ExtResource("1_1yeck")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=111159286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=842965959]
 shape = SubResource("BoxShape3D_1yeck")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3841858e-07, 0)
-mesh = SubResource("BoxMesh_676s3")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=701866305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.41622734, -13.083634)
+mesh = ExtResource("2_muwfm")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D" unique_id=1585817720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.40305912, -9.113856)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="StaticBody3D" unique_id=727772758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.37670183, -5.1429787)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="StaticBody3D" unique_id=1322976876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.38892943, -1.1629457)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="StaticBody3D" unique_id=1854131685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.40990365, 2.807493)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="StaticBody3D" unique_id=1145746633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.41569233, 6.795432)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="StaticBody3D" unique_id=316934404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.41569233, 10.78576)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="StaticBody3D" unique_id=1538583609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.41569233, 14.781388)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D79" type="MeshInstance3D" parent="StaticBody3D" unique_id=1570608689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.191797, 0.41569233, 14.781388)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D80" type="MeshInstance3D" parent="StaticBody3D" unique_id=1903709993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.164534, 0.41569233, 14.781388)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D81" type="MeshInstance3D" parent="StaticBody3D" unique_id=546810181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.156672, 0.41569233, 14.781388)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D65" type="MeshInstance3D" parent="StaticBody3D" unique_id=249597037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265816, 0.41569233, 18.705967)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D82" type="MeshInstance3D" parent="StaticBody3D" unique_id=1241993486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.224365, 0.41569233, 18.705967)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D83" type="MeshInstance3D" parent="StaticBody3D" unique_id=714205590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.183853, 0.41569233, 18.705967)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D84" type="MeshInstance3D" parent="StaticBody3D" unique_id=492563127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.133244, 0.41569233, 18.705967)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=108015852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261715, 0.4022305, -13.083634)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D" unique_id=314788076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261715, 0.39434803, -9.128401)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="StaticBody3D" unique_id=376238262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261715, 0.38037956, -5.1724677)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="StaticBody3D" unique_id=1174758477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261715, 0.3944552, -1.1916409)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="StaticBody3D" unique_id=437973887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261715, 0.42533052, 2.800277)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="StaticBody3D" unique_id=1427376881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261715, 0.40749502, 6.752571)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="StaticBody3D" unique_id=546804402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.272993, 0.40726268, 10.732858)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="StaticBody3D" unique_id=1182548971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.272993, 0.40726268, 14.726232)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D66" type="MeshInstance3D" parent="StaticBody3D" unique_id=1047058489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.272993, 0.40726268, 18.68404)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D" unique_id=488564071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.40879434, -13.083634)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D" unique_id=1436233402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.4083221, -9.124674)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="StaticBody3D" unique_id=1678807554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2860928, 0.37285948, -5.174035)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="StaticBody3D" unique_id=222592313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.40143675, -1.1931996)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="StaticBody3D" unique_id=1206296739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.43120396, 2.7931256)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="StaticBody3D" unique_id=1583708124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.4139278, 6.7776294)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="StaticBody3D" unique_id=1211789063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.4139278, 10.706083)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="StaticBody3D" unique_id=151365673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.4139278, 14.64788)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D67" type="MeshInstance3D" parent="StaticBody3D" unique_id=1788904176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.256483, 0.4139278, 18.652117)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D" unique_id=1731552846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.36999196, -13.083634)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="StaticBody3D" unique_id=851199512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3227935, 0.3689654, -9.167566)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="StaticBody3D" unique_id=1711289152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.36126888, -5.185422)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="StaticBody3D" unique_id=2069572616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.3815052, -1.2051485)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="StaticBody3D" unique_id=32064406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.41444045, 2.7784817)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="StaticBody3D" unique_id=1369767568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.42541194, 6.777359)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="StaticBody3D" unique_id=417400385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.42541194, 10.643846)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="StaticBody3D" unique_id=1833266086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.42541194, 14.62804)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D68" type="MeshInstance3D" parent="StaticBody3D" unique_id=1614201283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3114765, 0.42541194, 18.591461)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="StaticBody3D" unique_id=1980374649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.38314188, -13.083634)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="StaticBody3D" unique_id=259214421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.34600282, -9.204338)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="StaticBody3D" unique_id=291710466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.37436163, -5.179056)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="StaticBody3D" unique_id=371335438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.37783563, -1.2228408)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="StaticBody3D" unique_id=103307214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.40371215, 2.7370954)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="StaticBody3D" unique_id=1154370743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.4287508, 6.724064)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="StaticBody3D" unique_id=964684236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.4287508, 10.710305)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="StaticBody3D" unique_id=1604923624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.4287508, 14.603273)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D69" type="MeshInstance3D" parent="StaticBody3D" unique_id=1937835285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.652615, 0.4287508, 18.562292)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="StaticBody3D" unique_id=1872133271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.591934, 0.3504545, -13.083634)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="StaticBody3D" unique_id=1954226449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.3452549, -9.21229)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="StaticBody3D" unique_id=2086449447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.3755579, -5.184112)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="StaticBody3D" unique_id=738369738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.37839866, -1.2121239)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="StaticBody3D" unique_id=663687901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.3814683, 2.7564688)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="StaticBody3D" unique_id=1566726600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.41810346, 6.745246)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="StaticBody3D" unique_id=1996666537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.41810346, 10.668982)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D55" type="MeshInstance3D" parent="StaticBody3D" unique_id=1767888063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.41810346, 14.635252)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D70" type="MeshInstance3D" parent="StaticBody3D" unique_id=929716705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6286325, 0.41810346, 18.560072)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D" unique_id=1823919410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.582241, 0.36170304, -13.083634)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D57" type="MeshInstance3D" parent="StaticBody3D" unique_id=1518609570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.551769, 0.36170304, -13.083634)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="StaticBody3D" unique_id=210586743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.593513, 0.32646132, -9.244861)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D58" type="MeshInstance3D" parent="StaticBody3D" unique_id=1731463911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.584399, 0.32646132, -9.244861)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="StaticBody3D" unique_id=860374259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.61945, 0.36740398, -5.1988716)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D59" type="MeshInstance3D" parent="StaticBody3D" unique_id=882223402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5900955, 0.36740398, -5.1988716)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="StaticBody3D" unique_id=1319061098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.61945, 0.37176478, -1.2513413)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D60" type="MeshInstance3D" parent="StaticBody3D" unique_id=1865403750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.612773, 0.37176478, -1.2513413)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="StaticBody3D" unique_id=893080707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.61945, 0.36715448, 2.7257805)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D61" type="MeshInstance3D" parent="StaticBody3D" unique_id=1675177069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.608363, 0.36715448, 2.7257805)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="StaticBody3D" unique_id=875374614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.598204, 0.395801, 6.7142944)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D62" type="MeshInstance3D" parent="StaticBody3D" unique_id=153725095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.578731, 0.395801, 6.7142944)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="StaticBody3D" unique_id=2076810317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.598204, 0.395801, 10.674417)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D63" type="MeshInstance3D" parent="StaticBody3D" unique_id=1230765349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.569985, 0.395801, 10.674417)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D56" type="MeshInstance3D" parent="StaticBody3D" unique_id=1777066962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.598204, 0.395801, 14.627225)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D71" type="MeshInstance3D" parent="StaticBody3D" unique_id=2007532771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.598204, 0.395801, 18.515007)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D64" type="MeshInstance3D" parent="StaticBody3D" unique_id=228903513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.602303, 0.395801, 14.627225)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D72" type="MeshInstance3D" parent="StaticBody3D" unique_id=50943373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.602303, 0.395801, 18.539968)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D74" type="MeshInstance3D" parent="StaticBody3D" unique_id=883312467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.594677, 0.395801, 18.539968)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D77" type="MeshInstance3D" parent="StaticBody3D" unique_id=151222642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.562094, 0.395801, 18.539968)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D78" type="MeshInstance3D" parent="StaticBody3D" unique_id=1588328011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.56588, 0.395801, 18.539968)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D73" type="MeshInstance3D" parent="StaticBody3D" unique_id=906078934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.592236, 0.395801, 14.66317)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D75" type="MeshInstance3D" parent="StaticBody3D" unique_id=1929628630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.582499, 0.395801, 14.66317)
+mesh = ExtResource("2_muwfm")
+
+[node name="MeshInstance3D76" type="MeshInstance3D" parent="StaticBody3D" unique_id=184188899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.578424, 0.395801, 14.66317)
+mesh = ExtResource("2_muwfm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1322302064]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928473, 0.29742724, 0, 9.594474, 26.562931)
 shadow_enabled = true
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=110639197]
 transform = Transform3D(29.765282, 0, 0, 0, 1.2155757, 0, 0, 0, 0.16564731, -0.021139145, 1.812588, -14.901383)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2" unique_id=129497592]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D" unique_id=1761218670]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0.0017292373, 0, -0.03540039)
 shape = SubResource("BoxShape3D_wy88x")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=2044401218]
 transform = Transform3D(-1.3010817e-06, 0, 0.16564731, 0, 1.2155757, 0, -29.765282, 0, -7.240674e-09, -14.882582, 1.812588, 0.010302067)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=52228706]
 transform = Transform3D(-1.3010817e-06, 0, 0.16564731, 0, 1.2155757, 0, -29.765282, 0, -7.240674e-09, 14.900326, 1.812588, 0.010302067)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=834615219]
 transform = Transform3D(-4.371137e-08, 0, 25.994045, 0, 1, 0, -0.9999996, 0, -1.1362357e-06, 0, 1.5239866, 14.98885)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1823134257]
+transform = Transform3D(0.99999565, 0, -8.299139e-12, 0, 1.0000019, 0, -2.220446e-16, 0, 1.0000001, 0, 0, 0)
 shape = SubResource("BoxShape3D_wy88x")
 
-[node name="MatchCode" parent="." instance=ExtResource("2_676s3")]
+[node name="MatchCode" parent="." unique_id=1622611053 instance=ExtResource("2_676s3")]
 
-[node name="leaderboardTable" parent="." instance=ExtResource("3_qax70")]
+[node name="leaderboardTable" parent="." unique_id=856583067 instance=ExtResource("3_qax70")]
 offset_left = -400.0
 offset_bottom = 60.0
 
-[node name="StateBtn" parent="." instance=ExtResource("4_wy88x")]
+[node name="StateBtn" parent="." unique_id=2010379573 instance=ExtResource("4_wy88x")]
 
-[node name="LabelCountDown" type="Label" parent="."]
+[node name="LabelCountDown" type="Label" parent="." unique_id=1911726559]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,5 +415,49 @@ offset_right = 28.5
 offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_a00mo")
 theme_override_font_sizes/font_size = 100
 text = "5"
+
+[node name="wall-banner2" parent="." unique_id=2006186758 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-0.13442619, 0, 0.9300656, 0, 4.774942, 0, -10.379576, 0, -0.012045307, -14.766434, -0.58852875, -9.568058)
+
+[node name="wall-banner3" parent="." unique_id=825020217 instance=ExtResource("7_f86l8")]
+transform = Transform3D(0.12899224, 0, 0.9300719, 0, 4.776957, 0, -10.379645, 0, 0.011558393, -14.766434, -0.58852875, 0.7000766)
+
+[node name="wall-banner4" parent="." unique_id=1086223835 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-0.06685196, 0, 0.93012446, 0, 4.768248, 0, -10.380232, 0, -0.0059902966, -14.806652, -0.58852875, 11.072231)
+
+[node name="wall-banner5" parent="." unique_id=1024362609 instance=ExtResource("7_f86l8")]
+transform = Transform3D(0.16468087, 0, -0.9300265, 0, 4.7682486, 0, 10.379142, 0, 0.014756283, 14.785089, -0.58852875, 11.072231)
+
+[node name="wall-banner6" parent="." unique_id=1849988607 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-0.14764947, 0, -0.9300496, 0, 4.7682495, 0, 10.3794, 0, -0.013230183, 14.785089, -0.58852875, 0.72563744)
+
+[node name="wall-banner7" parent="." unique_id=2030332589 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-0.016666345, 0, -0.93014246, 0, 4.7682495, 0, 10.380437, 0, -0.0014933962, 14.878213, -0.58852875, -9.568024)
+
+[node name="wall-banner8" parent="." unique_id=417179804 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-10.380395, 0, 0.0030356098, 0, 4.76825, 0, -0.03387728, 0, -0.93013865, 9.765722, -0.58852875, -14.862421)
+
+[node name="wall-banner11" parent="." unique_id=966470238 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-10.380278, 0, 0.00534082, 0, 4.7682495, 0, -0.059603572, 0, -0.9301282, 19.991516, -0.58852875, 16.201908)
+
+[node name="wall-banner12" parent="." unique_id=1437962933 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-10.380278, 0, 0.00534082, 0, 4.7682495, 0, -0.059603572, 0, -0.9301282, -19.891161, -0.58852875, 16.18216)
+
+[node name="wall-banner9" parent="." unique_id=985765554 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-10.380395, 0, 0.0030356098, 0, 4.76825, 0, -0.03387728, 0, -0.93013865, -0.47276688, -0.58852875, -14.862421)
+
+[node name="wall-banner10" parent="." unique_id=254679797 instance=ExtResource("7_f86l8")]
+transform = Transform3D(-10.380395, 0, 0.0030356098, 0, 4.76825, 0, -0.03387728, 0, -0.93013865, -10.522509, -0.58852875, -14.862421)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=838045653]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=37852685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.942313, 1.8129721, 0.08484268)
+shape = SubResource("BoxShape3D_f86l8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1904863587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.940831, 1.8129721, 0.08484268)
+shape = SubResource("BoxShape3D_f86l8")

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5ebm8bly18ke"]
+[gd_scene format=3 uid="uid://c5ebm8bly18ke"]
 
 [ext_resource type="Script" uid="uid://coajs3rgt70vr" path="res://ui/components/leaderboard/table.gd" id="1_pobkm"]
 
-[node name="Table" type="Control"]
+[node name="Table" type="Control" unique_id=162554898]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,10 +13,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_pobkm")
 
-[node name="Rows" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2139537994]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 7
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer" unique_id=145237164]
+layout_mode = 2
+theme_override_constants/separation = 6

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c71a80l3sqd76"]
+[gd_scene format=3 uid="uid://c71a80l3sqd76"]
 
 [ext_resource type="Script" uid="uid://bsv35lnmmumr2" path="res://ui/components/leaderboard/table_row.gd" id="1_v44ra"]
 
-[node name="TableRow" type="Panel"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v44ra"]
+
+[node name="TableRow" type="Panel" unique_id=2073487578]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,9 +12,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v44ra")
 script = ExtResource("1_v44ra")
 
-[node name="Grid" type="HBoxContainer" parent="."]
+[node name="Grid" type="HBoxContainer" parent="." unique_id=22269603]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
