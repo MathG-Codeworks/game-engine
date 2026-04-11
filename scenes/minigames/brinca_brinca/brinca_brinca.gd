@@ -80,7 +80,7 @@ func _on_area_3d_platform_body_entered(body: Node3D, platform: StaticBody3D) -> 
 		var color = body.underline_user_name.material_override.albedo_color
 		if color:
 			platform.add_color(color)
-			
+
 		if platform == correct_platform:
 			print("estas en la respuesta correcta")
 			

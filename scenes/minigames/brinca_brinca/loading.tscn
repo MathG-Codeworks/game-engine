@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxllf8kk2djy3"]
+[gd_scene format=3 uid="uid://cxllf8kk2djy3"]
 
 [ext_resource type="Script" uid="uid://qnkdfcb6gqph" path="res://scenes/minigames/brinca_brinca/loading.gd" id="1_qywu5"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="2_rg7eq"]
 
-[node name="Loading" type="Control"]
+[node name="Loading" type="Control" unique_id=792501439]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qywu5")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=903635101]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,32 +20,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1177295627]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=906579113]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=283202252]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rg7eq")
 theme_override_font_sizes/font_size = 30
 text = "BRINCA BRINCA"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=1560898946]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_rg7eq")
 theme_override_font_sizes/normal_font_size = 18
 text = "¡Salta en el trampolín correcto y resuelve la ecuación! Cuatro plataformas, una sola respuesta. ¿Serás el más rápido en brincar a la victoria?"
 fit_content = true
 
-[node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer"]
+[node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer" unique_id=720483825]
 custom_minimum_size = Vector2(400, 250)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1985976822]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -58,7 +61,7 @@ grow_vertical = 0
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 14
 
-[node name="ButtonStart" type="Button" parent="MarginContainer"]
+[node name="ButtonStart" type="Button" parent="MarginContainer" unique_id=525459584]
 custom_minimum_size = Vector2(120, 56)
 layout_mode = 2
 disabled = true

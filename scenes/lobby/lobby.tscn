@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn6dpvpbdum4h"]
+[gd_scene format=3 uid="uid://cn6dpvpbdum4h"]
 
 [ext_resource type="Script" uid="uid://ci3mfed813t1j" path="res://scenes/lobby/lobby.gd" id="1_ej4tk"]
 [ext_resource type="ArrayMesh" uid="uid://bbp23um3tvtdj" path="res://scenes/lobby/Valdosa.tres" id="2_mlusu"]
@@ -11,6 +11,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dj2v6p38mip8c" path="res://tres/maquina3.tres" id="8_iytm0"]
 [ext_resource type="ArrayMesh" uid="uid://d3dbaxtxxdtcf" path="res://tres/maquina4.tres" id="9_l1n8d"]
 [ext_resource type="PackedScene" uid="uid://crxc176iuwbew" path="res://puerta/flag-banner-short.glb" id="11_5l4x7"]
+[ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="12_a0ps3"]
+[ext_resource type="Texture2D" uid="uid://cqt4r27i13d3h" path="res://joystick/arriba.png" id="13_tsrmh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(30, 1, 30)
@@ -35,10 +37,10 @@ size = Vector3(2.6138973, 3.0184937, 1.8118896)
 [node name="Lobby" type="Node3D" unique_id=1443995128]
 script = ExtResource("1_ej4tk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1144456918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=530654139]
 shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1895831846]
@@ -250,56 +252,56 @@ transform = Transform3D(-0.048168387, 0, -3.0451643, 0, 1.7461014, 0, 1.2330997,
 [node name="flag-banner-long3" parent="StaticBody3D" unique_id=247904497 instance=ExtResource("4_m8hcm")]
 transform = Transform3D(-0.048168387, 0, -3.0451643, 0, 1.7461014, 0, 1.2330997, 0, -0.1189528, 4.370766, 1.0606942, -14.796041)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=717268513]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928473, 0.29742724, 0, 9.594474, 26.562931)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2074587423]
 transform = Transform3D(29.765282, 0, 0, 0, 1.2155757, 0, 0, 0, 0.16564731, -0.021139145, 1.812588, -14.901383)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D" unique_id=1701089045]
 transform = Transform3D(0.097766854, 0, 0, 0, -0.0070304843, -6.3170657, 0, 3.171394, -0.754129, 0.0015120152, -1.8619723, 0.86525726)
 operation = 2
 calculate_tangents = false
 use_collision = true
 sides = 18
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D" unique_id=1136471403]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D" unique_id=299652503]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0.0017292373, 0, -0.03540039)
 shape = SubResource("BoxShape3D_ej4tk")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1083394685]
 transform = Transform3D(29.765282, 0, 0, 0, 1.2155757, 0, 0, 0, 0.16564731, -0.021139145, 1.812588, -14.901383)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D2"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D2" unique_id=1129193386]
 transform = Transform3D(0.097766854, 0, 0, 0, -0.0070304843, -6.3170657, 0, 3.171394, -0.754129, 0.0015120152, -1.8619723, 0.86525726)
 operation = 2
 calculate_tangents = false
 use_collision = true
 sides = 18
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2" unique_id=243968298]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D" unique_id=175252637]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0.0017292373, 0, -0.03540039)
 shape = SubResource("BoxShape3D_ej4tk")
 
-[node name="Multiplayer_options" type="Area3D" parent="."]
+[node name="Multiplayer_options" type="Area3D" parent="." unique_id=1562299534]
 transform = Transform3D(2.9060411, 0, 0, 0, 3.2177184, 0, 0, 0, 1.3611405, 0, 0, -14.018775)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Multiplayer_options" unique_id=213932883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999995, 0, 0, 0)
 shape = SubResource("BoxShape3D_oe8ih")
 
-[node name="MatchModal" parent="Multiplayer_options" instance=ExtResource("3_mlusu")]
+[node name="MatchModal" parent="Multiplayer_options" unique_id=202675979 instance=ExtResource("3_mlusu")]
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=130963453]
 transform = Transform3D(-1.3010817e-06, 0, 0.16564731, 0, 1.2155757, 0, -29.765282, 0, -7.240674e-09, -14.882582, 1.812588, 0.010302067)
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
@@ -309,10 +311,10 @@ transform = Transform3D(-1.3010817e-06, 0, -0.16564731, 0, 1.2155757, 0, 29.7652
 use_collision = true
 size = Vector3(1.01, 3.8, 1.15)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1360113530]
 transform = Transform3D(-4.371137e-08, 0, 25.994045, 0, 1, 0, -0.9999996, 0, -1.1362357e-06, 0, 1.5239866, 14.98885)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1896524665]
 transform = Transform3D(1, 0, 0, 0, 1.0000019, 0, 0, 0, 1.0000001, 0, 0, 0)
 shape = SubResource("BoxShape3D_ej4tk")
 
@@ -519,6 +521,33 @@ transform = Transform3D(1.6503145, 0, 0, 0, 2.4227934, 0, 0, 0, 3.2986248, -14.7
 
 [node name="flag-banner-short5" parent="." unique_id=1215321399 instance=ExtResource("11_5l4x7")]
 transform = Transform3D(-1.6501758, 0, -0.04271698, 0, 2.4227931, 0, 0.021371424, 0, -3.2983487, 14.7725935, 1.8742938, 11.5041275)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1781923482]
+
+[node name="joystick" parent="CanvasLayer" unique_id=480888873 instance=ExtResource("12_a0ps3")]
+offset_left = 141.0
+offset_top = -214.0
+offset_right = 275.0
+offset_bottom = -78.0
+
+[node name="ContenedorSalto" type="Control" parent="CanvasLayer" unique_id=143842927]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -198.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/ContenedorSalto" unique_id=1161540099]
+scale = Vector2(1.59375, 1.640625)
+texture_normal = ExtResource("13_tsrmh")
+passby_press = true
+action = "jump"
+visibility_mode = 1
 
 [connection signal="body_entered" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_entered"]
 [connection signal="body_exited" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_exited"]

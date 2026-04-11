@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dpeiybbloq0c1"]
 
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="1_mcwd7"]
+
 [node name="Round" type="Control" unique_id=1177513126]
 layout_mode = 3
 anchors_preset = 15
@@ -14,6 +16,7 @@ offset_left = 50.0
 offset_top = 116.0
 offset_right = 183.0
 offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("1_mcwd7")
 theme_override_font_sizes/font_size = 25
 text = "Ronda XX"
 horizontal_alignment = 1

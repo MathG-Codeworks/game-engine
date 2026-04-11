@@ -10,7 +10,7 @@ var shader_material : ShaderMaterial
 func _ready() -> void:
 	self.shader_material = ShaderMaterial.new()
 	self.shader_material.shader = preload("res://scenes/minigames/brinca_brinca/platform_color.gdshader")
-	self.floor_node.material_override = shader_material
+	#self.floor_node.material_override = shader_material
 
 func set_text(p_text: String) -> void:
 	self.label.text = p_text

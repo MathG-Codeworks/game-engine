@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bsegrhtpcoeud"]
 
 [ext_resource type="Script" uid="uid://cbpupykrgr00m" path="res://ui/components/timer/timer.gd" id="1_qoa8k"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="2_y5l3o"]
 
 [node name="Timer" type="Control" unique_id=147914691]
 layout_mode = 3
@@ -17,6 +18,7 @@ offset_left = 22.0
 offset_top = 18.0
 offset_right = 142.0
 offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("2_y5l3o")
 theme_override_font_sizes/font_size = 25
 text = "0:00"
 horizontal_alignment = 1

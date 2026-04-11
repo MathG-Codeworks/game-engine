@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bju42pfe5vvey" path="res://ui/components/ready_btn/state_btn.tscn" id="4_wy88x"]
 [ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="6_a00mo"]
 [ext_resource type="PackedScene" uid="uid://c0pylbasd6qlw" path="res://scenes/waiting_room/wall-banner.glb" id="7_f86l8"]
+[ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="8_aie0g"]
+[ext_resource type="Texture2D" uid="uid://cqt4r27i13d3h" path="res://joystick/arriba.png" id="9_3oiwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1yeck"]
 size = Vector3(30, 1, 30)
@@ -461,3 +463,32 @@ shape = SubResource("BoxShape3D_f86l8")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1904863587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.940831, 1.8129721, 0.08484268)
 shape = SubResource("BoxShape3D_f86l8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=366125367]
+
+[node name="joystick" parent="CanvasLayer" unique_id=1142671998 instance=ExtResource("8_aie0g")]
+offset_left = 175.0
+offset_top = -236.0
+offset_right = 309.0
+offset_bottom = -100.0
+
+[node name="ContenedorSalto" type="Control" parent="CanvasLayer" unique_id=714634509]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -298.0
+offset_right = -6.0
+offset_bottom = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/ContenedorSalto" unique_id=83314352]
+scale = Vector2(1.59375, 1.640625)
+texture_normal = ExtResource("9_3oiwl")
+passby_press = true
+action = "jump"
+visibility_mode = 1

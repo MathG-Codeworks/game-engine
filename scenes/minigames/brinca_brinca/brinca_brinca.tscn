@@ -2,15 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bs8nwyqhxg6pv" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gd" id="1_yciyb"]
 [ext_resource type="PackedScene" uid="uid://dk6n0vqjg8jlb" path="res://scenes/minigames/brinca_brinca/answer.tscn" id="2_2ey3y"]
+[ext_resource type="ArrayMesh" uid="uid://byhk67dou3vjb" path="res://tres/terre1.tres" id="2_anxfc"]
 [ext_resource type="PackedScene" uid="uid://bwcuopnxu408q" path="res://scenes/minigames/brinca_brinca/platform.tscn" id="2_mjjrl"]
 [ext_resource type="PackedScene" uid="uid://bsegrhtpcoeud" path="res://ui/components/timer/timer.tscn" id="2_oxyvo"]
 [ext_resource type="PackedScene" uid="uid://dpeiybbloq0c1" path="res://ui/components/round/round.tscn" id="3_f0w01"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="3_xduf2"]
+[ext_resource type="ArrayMesh" uid="uid://c5rs5mw63p2bq" path="res://tres/pant.tres" id="4_anxfc"]
 [ext_resource type="Script" uid="uid://c8gxwrchr3lbb" path="res://ui/components/round/round.gd" id="4_cijl1"]
 [ext_resource type="PackedScene" uid="uid://bel7j8cw4x5nj" path="res://ui/components/leaderboard/leaderboardTable.tscn" id="6_bjo2o"]
+[ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="9_067ss"]
+[ext_resource type="Texture2D" uid="uid://cqt4r27i13d3h" path="res://joystick/arriba.png" id="10_s0aeh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yciyb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_oxyvo"]
+size = Vector3(1.4088745, 1, 0.71027374)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxyvo"]
 
@@ -21,10 +25,12 @@ script = ExtResource("1_yciyb")
 transform = Transform3D(0.025354318, 0, -12.17937, 0, 0.38687912, 0, 3.5430977, 0, 0.08715524, 0.003305912, 0, 0.3851595)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPlatform" unique_id=1335211126]
+transform = Transform3D(1.4899843, 0, 1.8626451e-08, 0, 1, 0, -4.656613e-10, 0, 1.5136986, -0.032169342, -1.561375, 0.012564058)
 shape = SubResource("BoxShape3D_yciyb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPlatform" unique_id=618161073]
-mesh = SubResource("BoxMesh_oxyvo")
+transform = Transform3D(1.9407986, 0, -1.6763806e-08, 0, 10.662595, 0, 0, 0, 1.0010412, 0, -6.6821284, 0)
+mesh = ExtResource("2_anxfc")
 
 [node name="PlatformA" parent="." unique_id=387782102 instance=ExtResource("2_mjjrl")]
 transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, -4.41, 0, -5.659)
@@ -45,12 +51,13 @@ transform = Transform3D(0.0068644173, 0, -15.845308, 0, 9.52062, 0, 0.95925695, 
 shape = SubResource("BoxShape3D_yciyb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionScreen" unique_id=19318133]
-transform = Transform3D(1, 0, -3.9859692e-11, 0, 1.003, 0, 2.917986e-11, 0, 1.366, 0, 0, 0)
-mesh = SubResource("BoxMesh_oxyvo")
+transform = Transform3D(0.13401027, 2.3522897, -0.00027507544, -0.52782077, 0.59723073, -0.0003539058, -0.00017785834, 0.001019046, 0.8426026, -0.03800392, -0.14468724, -0.0275276)
+mesh = ExtResource("4_anxfc")
 
 [node name="ExerciseScreen" type="Label3D" parent="QuestionScreen" unique_id=807018670]
 transform = Transform3D(-8.940697e-08, 0, 1.0000005, 0, 1, 0, -0.99999976, 0, -4.3481123e-08, 0.5127907, 0.2786401, 0.00022215396)
 text = "F(x) = 2x + 5"
+font = ExtResource("3_xduf2")
 font_size = 25
 outline_size = 10
 
@@ -93,5 +100,32 @@ size_flags_horizontal = 6
 
 [node name="SpectatorCamera3D" type="Camera3D" parent="." unique_id=1520097101]
 transform = Transform3D(1, 0, 0, 0, 0.9217075, 0.38788563, 0, -0.38788563, 0.9217075, 0, 5.230862, 5.386362)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1400992787]
+
+[node name="joystick" parent="CanvasLayer" unique_id=1142671998 instance=ExtResource("9_067ss")]
+offset_left = 199.0
+offset_top = -232.0
+offset_right = 333.0
+offset_bottom = -96.0
+
+[node name="ContenedorSalto" type="Control" parent="CanvasLayer" unique_id=1320345402]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -198.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/ContenedorSalto" unique_id=441329837]
+scale = Vector2(1.59375, 1.640625)
+texture_normal = ExtResource("10_s0aeh")
+passby_press = true
+action = "jump"
+visibility_mode = 1
 
 [connection signal="body_entered" from="LoseArea3D" to="." method="_on_area_3d_body_entered"]

@@ -30,6 +30,10 @@ MinigameManager="*res://core/minigame_manager.gd"
 MultiplayerManager="*res://network/multiplayer_manager.gd"
 Answer="*uid://dk6n0vqjg8jlb"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [filesystem]
 
 import/blender/enabled=false
@@ -65,3 +69,7 @@ jump={
 [physics]
 
 3d/default_gravity=9.0
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
