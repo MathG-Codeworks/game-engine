@@ -29,6 +29,8 @@ RoundManager="*uid://cbaoykf1fo533"
 MinigameManager="*res://core/minigame_manager.gd"
 MultiplayerManager="*res://network/multiplayer_manager.gd"
 Answer="*uid://dk6n0vqjg8jlb"
+TokenManager="*uid://bg5bgblibb5yp"
+AuthManager="*uid://qdd0vc5njiof"
 
 [display]
 

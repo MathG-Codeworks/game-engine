@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://rka2hrq10mtq"]
+
+[ext_resource type="Script" uid="uid://xebvms5vrr0" path="res://scenes/main/login/login.gd" id="1_85r1o"]
+[ext_resource type="Texture2D" uid="uid://c5naofns8jyvy" path="res://assets/fondo.png" id="1_gmqox"]
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="2_85r1o"]
+[ext_resource type="Texture2D" uid="uid://o15nn3hrtu5c" path="res://assets/logo_MathG_x5vo20.png" id="3_hl8a7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7mr8w"]
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[node name="Login" type="Node2D" unique_id=676599247]
+script = ExtResource("1_85r1o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1299794308]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_gmqox")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="." unique_id=1410064361]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoginButton" type="Button" parent="Control" unique_id=1265010861]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 505.0
+offset_right = 1057.0
+offset_bottom = 580.0
+theme_override_fonts/font = ExtResource("2_85r1o")
+text = "Entrar!"
+
+[node name="BackButton" type="Button" parent="Control" unique_id=617214914]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 38.0
+offset_right = 1086.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("2_85r1o")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7mr8w")
+text = "Volver"
+
+[node name="LogoMathGX5Vo20" type="Sprite2D" parent="Control" unique_id=218179223]
+position = Vector2(576, 268)
+scale = Vector2(0.8070501, 0.8464052)
+texture = ExtResource("3_hl8a7")
+
+[node name="UsernameInput" type="LineEdit" parent="Control" unique_id=591636005]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 505.0
+offset_right = 457.0
+offset_bottom = 580.0
+placeholder_text = "Nombre o Email"
+alignment = 1
+
+[node name="PasswordInput" type="LineEdit" parent="Control" unique_id=655357141]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 505.0
+offset_right = 759.0
+offset_bottom = 580.0
+placeholder_text = "Contraseña"
+alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=481214909]
+
+[node name="Container" type="ColorRect" parent="CanvasLayer" unique_id=1318731070]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.23529412)
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=679960162]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ErrorMessageLabel" type="RichTextLabel" parent="CanvasLayer/Panel" unique_id=367683819]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="gui_input" from="CanvasLayer/Container" to="." method="_on_container_gui_input"]
