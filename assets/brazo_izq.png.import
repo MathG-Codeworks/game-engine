@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxu0k2y5k488j"
 path.s3tc="res://.godot/imported/brazo_izq.png-a35529e03e823b9b58cc1b084624498c.s3tc.ctex"
-path.etc2="res://.godot/imported/brazo_izq.png-a35529e03e823b9b58cc1b084624498c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/brazo_izq.png"
-dest_files=["res://.godot/imported/brazo_izq.png-a35529e03e823b9b58cc1b084624498c.s3tc.ctex", "res://.godot/imported/brazo_izq.png-a35529e03e823b9b58cc1b084624498c.etc2.ctex"]
+dest_files=["res://.godot/imported/brazo_izq.png-a35529e03e823b9b58cc1b084624498c.s3tc.ctex"]
 
 [params]
 

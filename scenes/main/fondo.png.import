@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5naofns8jyvy"
 path.s3tc="res://.godot/imported/fondo.png-c225bb68d9fa7ed91228c8f2ec7d6a14.s3tc.ctex"
-path.etc2="res://.godot/imported/fondo.png-c225bb68d9fa7ed91228c8f2ec7d6a14.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/main/fondo.png"
-dest_files=["res://.godot/imported/fondo.png-c225bb68d9fa7ed91228c8f2ec7d6a14.s3tc.ctex", "res://.godot/imported/fondo.png-c225bb68d9fa7ed91228c8f2ec7d6a14.etc2.ctex"]
+dest_files=["res://.godot/imported/fondo.png-c225bb68d9fa7ed91228c8f2ec7d6a14.s3tc.ctex"]
 
 [params]
 

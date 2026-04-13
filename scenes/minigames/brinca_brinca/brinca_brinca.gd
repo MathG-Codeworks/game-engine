@@ -77,7 +77,7 @@ func start_spectator_mode():
 		
 func _on_area_3d_platform_body_entered(body: Node3D, platform: StaticBody3D) -> void:
 	if body is Character:
-		var color = body.underline_user_name.material_override.albedo_color
+		var color = body.underline_user_name.material_override.albedo_color if body.underline_user_name.material_override else null
 		if color:
 			platform.add_color(color)
 
@@ -86,7 +86,7 @@ func _on_area_3d_platform_body_entered(body: Node3D, platform: StaticBody3D) -> 
 			
 func _on_area_3d_platform_body_exited(body: Node3D, platform) -> void:
 	if body is Character:
-		var color = body.underline_user_name.material_override.albedo_color
+		var color = body.underline_user_name.material_override.albedo_color if body.underline_user_name.material_override else null
 		if color:
 			platform.delete_color(color)
 		

@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgav0xxg7yk02"
 path.s3tc="res://.godot/imported/pie_der.png-ae8b3c14a84422f54c8d7c0166379a49.s3tc.ctex"
-path.etc2="res://.godot/imported/pie_der.png-ae8b3c14a84422f54c8d7c0166379a49.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/pie_der.png"
-dest_files=["res://.godot/imported/pie_der.png-ae8b3c14a84422f54c8d7c0166379a49.s3tc.ctex", "res://.godot/imported/pie_der.png-ae8b3c14a84422f54c8d7c0166379a49.etc2.ctex"]
+dest_files=["res://.godot/imported/pie_der.png-ae8b3c14a84422f54c8d7c0166379a49.s3tc.ctex"]
 
 [params]
 
