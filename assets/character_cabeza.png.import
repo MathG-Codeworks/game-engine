@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmo7w4v1srtae"
 path.s3tc="res://.godot/imported/character_cabeza.png-10c1ee0803a36fb0a448c09229bd1ddf.s3tc.ctex"
+path.etc2="res://.godot/imported/character_cabeza.png-10c1ee0803a36fb0a448c09229bd1ddf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_cabeza.png"
-dest_files=["res://.godot/imported/character_cabeza.png-10c1ee0803a36fb0a448c09229bd1ddf.s3tc.ctex"]
+dest_files=["res://.godot/imported/character_cabeza.png-10c1ee0803a36fb0a448c09229bd1ddf.s3tc.ctex", "res://.godot/imported/character_cabeza.png-10c1ee0803a36fb0a448c09229bd1ddf.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hd6bhog2a2j5"
 path.s3tc="res://.godot/imported/character_pie_izq.png-b73db504528fc6645d8471066aa4df0b.s3tc.ctex"
+path.etc2="res://.godot/imported/character_pie_izq.png-b73db504528fc6645d8471066aa4df0b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_pie_izq.png"
-dest_files=["res://.godot/imported/character_pie_izq.png-b73db504528fc6645d8471066aa4df0b.s3tc.ctex"]
+dest_files=["res://.godot/imported/character_pie_izq.png-b73db504528fc6645d8471066aa4df0b.s3tc.ctex", "res://.godot/imported/character_pie_izq.png-b73db504528fc6645d8471066aa4df0b.etc2.ctex"]
 
 [params]
 

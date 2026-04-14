@@ -8,9 +8,10 @@ signal authenticated
 signal socket_connected
 
 const SERVER_KEY = "defaultkey"
-const HOST = "nakama-production-1.up.railway.app"
-const PORT = 443
-const SCHEME = "https"
+const HOST = "localhost"
+const PORT = 7350
+const SCHEME = "http"
+const PREFIX_USER_ID = "user_"
 
 func _ready():
 	_create_client()
@@ -18,17 +19,33 @@ func _ready():
 func _create_client():
 	client = Nakama.create_client(SERVER_KEY, HOST, PORT, SCHEME)
 
-func authenticate_device():
-	var device_id = OS.get_unique_id() + str(randi() % 10000)
-	var result = await client.authenticate_device_async(device_id)
-
-	if result.is_exception():
-		print("Auth error:", result.get_exception().message)
+func authenticate_with_nakama(id: int, username: String):
+	var nakama_auth = await client.authenticate_custom_async(PREFIX_USER_ID + str(id));
+	if nakama_auth.is_exception():
 		return
-
-	session = result
-	authenticated.emit()
+		
+	session = nakama_auth
+	await client.update_account_async(
+		session,
+		username,
+		username
+	)
+	session.username = username
 	
+	var rpc_result = await client.rpc_async(
+		session,
+		"create_session",
+		JSON.stringify({
+			"device_id": OS.get_unique_id().replace("{", "").replace("}", ""),
+			"access_token": TokenManager.access_token,
+			"refresh_token": TokenManager.refresh_token
+		})
+	)
+	
+	if rpc_result.is_exception():
+		return
+	
+	authenticated.emit()
 	await _connect_socket()
 
 func _connect_socket():

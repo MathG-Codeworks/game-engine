@@ -7,17 +7,20 @@ signal login_error(message: String)
 const AUTH_PATH: String = "user://auth.cfg"
 const AUTH_SECTION: String = "auth"
 
-@export var API_URL: String = "https://mathg-api.up.railway.app"
+@export var API_URL: String = "https://backend-juco.onrender.com"
 var LOGIN_URL: String = ""
+var PROFILE_URL: String = ""
 
 var access_token: String = ""
 var refresh_token: String = ""
 var is_verified: bool
+var profile: Profile
 
 var _http: HTTPRequest
 
 func _ready() -> void:
 	LOGIN_URL = API_URL + "/auth/login"
+	PROFILE_URL = API_URL + "/auth/profile"
 	_http = HTTPRequest.new()
 	add_child(_http)
 
@@ -98,14 +101,24 @@ func login(username_or_email: String, password: String) -> Dictionary:
 			"message": token_msg,
 			"data": data
 		}
-
+		
 	access_token = new_access_token
 	refresh_token = new_refresh_token
-	#var token_saved = TokenManager.save_tokens(access_token, refresh_token)
-	#
-	#if !token_saved:
-		#login_error.emit("Error de permisos de almacenamiento")
-		#return { "ok": false, "status": 0, "error": "Error de permisos de almacenamiento" }
+		
+	var profile_loaded = await _load_profile()
+	if not profile_loaded:
+		var profile_msg: String = "No se pudo cargar el perfil del usuario"
+		login_error.emit(profile_msg)
+		return {
+			"ok": false,
+			"message": profile_msg
+		}
+
+	var token_saved = TokenManager.save_tokens(access_token, refresh_token)
+	
+	if !token_saved:
+		login_error.emit("Error de permisos de almacenamiento")
+		return { "ok": false, "status": 0, "error": "Error de permisos de almacenamiento" }
 
 	is_verified = true
 	login_success.emit()
@@ -117,6 +130,51 @@ func login(username_or_email: String, password: String) -> Dictionary:
 		"refresh_token": refresh_token,
 		"data": data
 	}
+
+func _load_profile() -> bool:
+	var headers: PackedStringArray = PackedStringArray([
+		"Content-Type: application/json",
+		"Accept: application/json",
+		"Authorization: Bearer " + access_token
+	])
+
+	var request_error: int = _http.request(
+		PROFILE_URL,
+		headers,
+		HTTPClient.METHOD_GET
+	)
+
+	if request_error != OK:
+		return false
+
+	var result: Array = await _http.request_completed
+	var result_code: int = int(result[0])
+	var response_code: int = int(result[1])
+	var body: PackedByteArray = result[3]
+
+	if result_code != HTTPRequest.RESULT_SUCCESS:
+		return false
+
+	var body_text: String = body.get_string_from_utf8()
+	var parsed: Variant = JSON.parse_string(body_text)
+
+	if typeof(parsed) != TYPE_DICTIONARY:
+		return false
+
+	var data: Dictionary = parsed as Dictionary
+
+	if response_code < 200 or response_code >= 300:
+		return false
+		
+	profile = Profile.new(
+		int(data.get("id", 0)),
+		str(data.get("username", "")),
+		str(data.get("email", "")),
+		str(data.get("createdAt", "")),
+		str(data.get("updatedAt", "")),
+	)
+
+	return true
 
 func _extract_api_error(data: Dictionary, status_code: int) -> Dictionary:
 	var message_value: Variant = data.get("message", "")

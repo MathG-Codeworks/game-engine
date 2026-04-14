@@ -48,4 +48,5 @@ func _clear_tokens() -> bool:
 		return false	
 	
 func has_tokens() -> bool:
-	return access_token != "" and refresh_token != ""
+	#return access_token != "" and refresh_token != ""
+	return false

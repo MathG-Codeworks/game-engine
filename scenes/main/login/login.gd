@@ -24,7 +24,7 @@ func _on_back_button_pressed() -> void:
 func _on_login_success() -> void:
 	login_button.text = "Entrando..."
 	NetworkManager.socket_connected.connect(_on_socket)
-	NetworkManager.authenticate_device()
+	NetworkManager.authenticate_with_nakama(AuthManager.profile.id, AuthManager.profile.username)
 	
 func _on_socket() -> void:
 	get_tree().change_scene_to_file("res://scenes/lobby/lobby.tscn")
