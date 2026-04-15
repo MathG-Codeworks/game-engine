@@ -8,7 +8,7 @@ signal authenticated
 signal socket_connected
 
 const SERVER_KEY = "defaultkey"
-const HOST = "nakama-production-1.up.railway.app"
+const HOST = "nakama-eodx.onrender.com"
 const PORT = 443
 const SCHEME = "https"
 const PREFIX_USER_ID = "user_"
