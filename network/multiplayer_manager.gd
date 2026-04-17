@@ -56,7 +56,14 @@ func start_match():
 	started.emit()
 
 func join_match(code: String):
-	var payload = JSON.stringify({"code": code})
+	
+	if not TokenManager.access_token:
+		get_tree().change_scene_to_file("res://scenes/main/login/login.tscn")
+	
+	var payload = JSON.stringify({
+		"code": code,
+		"accessToken": TokenManager.access_token
+	})
 	var result = await NetworkManager.socket.rpc_async("join_match_by_code", payload)
 	
 	if result.is_exception():
