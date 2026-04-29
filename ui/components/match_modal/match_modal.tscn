@@ -28,7 +28,39 @@ texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 modulate_color = Color(0.14117648, 0, 0.27450982, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5l38"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kcqlp"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpjp8"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ned1c"]
+texture = ExtResource("2_kwrwe")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_voqwr"]
 texture = ExtResource("2_kwrwe")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
@@ -93,8 +125,12 @@ clear_button_enabled = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.8784314, 0.6666667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+theme_override_colors/font_hover_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
 theme_override_fonts/font = ExtResource("3_kwrwe")
 theme_override_styles/normal = SubResource("StyleBoxTexture_47hs5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a5l38")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kcqlp")
 text = "UNIRSE
 "
 
@@ -102,8 +138,12 @@ text = "UNIRSE
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.8784314, 0.6666667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+theme_override_colors/font_hover_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
 theme_override_fonts/font = ExtResource("3_kwrwe")
 theme_override_styles/normal = SubResource("StyleBoxTexture_dpjp8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ned1c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_voqwr")
 text = "CREAR SALA"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

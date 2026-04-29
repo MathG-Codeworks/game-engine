@@ -12,7 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d3dbaxtxxdtcf" path="res://tres/maquina4.tres" id="9_l1n8d"]
 [ext_resource type="PackedScene" uid="uid://crxc176iuwbew" path="res://puerta/flag-banner-short.glb" id="11_5l4x7"]
 [ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="12_a0ps3"]
-[ext_resource type="Texture2D" uid="uid://cqt4r27i13d3h" path="res://joystick/arriba.png" id="13_tsrmh"]
+[ext_resource type="Texture2D" uid="uid://b6kpu63n42tbm" path="res://joystick/button_hexagon.png" id="12_tsrmh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(30, 1, 30)
@@ -524,12 +524,6 @@ transform = Transform3D(-1.6501758, 0, -0.04271698, 0, 2.4227931, 0, 0.021371424
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1781923482]
 
-[node name="joystick" parent="CanvasLayer" unique_id=480888873 instance=ExtResource("12_a0ps3")]
-offset_left = 141.0
-offset_top = -214.0
-offset_right = 275.0
-offset_bottom = -78.0
-
 [node name="ContenedorSalto" type="Control" parent="CanvasLayer" unique_id=143842927]
 layout_mode = 3
 anchors_preset = 3
@@ -544,10 +538,16 @@ grow_vertical = 0
 
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/ContenedorSalto" unique_id=1161540099]
 scale = Vector2(1.59375, 1.640625)
-texture_normal = ExtResource("13_tsrmh")
+texture_normal = ExtResource("12_tsrmh")
 passby_press = true
 action = "jump"
 visibility_mode = 1
+
+[node name="joystick" parent="CanvasLayer" unique_id=1142671998 instance=ExtResource("12_a0ps3")]
+offset_left = 131.0
+offset_top = -266.0
+offset_right = 456.0
+offset_bottom = -37.0
 
 [connection signal="body_entered" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_entered"]
 [connection signal="body_exited" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_exited"]

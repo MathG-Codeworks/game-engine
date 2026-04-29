@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://gyoopwdlddnf"]
+
+[ext_resource type="Texture2D" uid="uid://ba4ihjwyxxs2t" path="res://controles/arriba.png" id="1_twgqq"]
+[ext_resource type="Texture2D" uid="uid://6eeimcoce7cm" path="res://controles/abajo.png" id="2_1g5ir"]
+[ext_resource type="Texture2D" uid="uid://boj1cyp7g8mvn" path="res://controles/izquierda.png" id="3_seti0"]
+[ext_resource type="Texture2D" uid="uid://cqui684yqqaak" path="res://controles/der.png" id="4_6a85j"]
+
+[node name="Controles" type="Control" unique_id=1599690761]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ArribaButton" type="TouchScreenButton" parent="." unique_id=254027773]
+position = Vector2(77, 11)
+scale = Vector2(1.3, 1.337)
+texture_normal = ExtResource("1_twgqq")
+passby_press = true
+action = "up"
+
+[node name="AbajoButton" type="TouchScreenButton" parent="." unique_id=493285977]
+position = Vector2(77, 114)
+scale = Vector2(1.3, 1.3)
+texture_normal = ExtResource("2_1g5ir")
+passby_press = true
+action = "down"
+
+[node name="IzquierdaButton" type="TouchScreenButton" parent="." unique_id=1734393755]
+position = Vector2(17, 66)
+scale = Vector2(1.3, 1.3)
+texture_normal = ExtResource("3_seti0")
+passby_press = true
+action = "left"
+
+[node name="DerechaButton" type="TouchScreenButton" parent="." unique_id=1819406847]
+position = Vector2(137, 68)
+scale = Vector2(1.3, 1.3)
+texture_normal = ExtResource("4_6a85j")
+passby_press = true
+action = "right"
+
+[node name="SaltoButton" type="TouchScreenButton" parent="." unique_id=1524167172]
+
+[node name="CorrerButton" type="TouchScreenButton" parent="." unique_id=2069734985]

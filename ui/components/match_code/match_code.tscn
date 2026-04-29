@@ -6,10 +6,26 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7x32e"]
 texture = ExtResource("3_myllv")
-texture_margin_left = 15.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 15.0
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myllv"]
+texture = ExtResource("3_myllv")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3lx30"]
+texture = ExtResource("3_myllv")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 modulate_color = Color(0.14117648, 0, 0.27450982, 1)
 
 [node name="MatchCode" type="Control" unique_id=174050561]
@@ -34,5 +50,7 @@ theme_override_constants/margin_top = 14
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_myllv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7x32e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_myllv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3lx30")
 
 [connection signal="pressed" from="MarginContainer/ButtonCode" to="." method="_on_button_code_pressed"]

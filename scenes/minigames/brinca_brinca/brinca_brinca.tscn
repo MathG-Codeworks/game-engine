@@ -7,16 +7,48 @@
 [ext_resource type="PackedScene" uid="uid://bsegrhtpcoeud" path="res://ui/components/timer/timer.tscn" id="2_oxyvo"]
 [ext_resource type="PackedScene" uid="uid://dpeiybbloq0c1" path="res://ui/components/round/round.tscn" id="3_f0w01"]
 [ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="3_xduf2"]
-[ext_resource type="ArrayMesh" uid="uid://c5rs5mw63p2bq" path="res://tres/pant.tres" id="4_anxfc"]
 [ext_resource type="Script" uid="uid://c8gxwrchr3lbb" path="res://ui/components/round/round.gd" id="4_cijl1"]
 [ext_resource type="PackedScene" uid="uid://bel7j8cw4x5nj" path="res://ui/components/leaderboard/leaderboardTable.tscn" id="6_bjo2o"]
 [ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="9_067ss"]
-[ext_resource type="Texture2D" uid="uid://cqt4r27i13d3h" path="res://joystick/arriba.png" id="10_s0aeh"]
+[ext_resource type="Texture2D" uid="uid://b6kpu63n42tbm" path="res://joystick/button_hexagon.png" id="10_anxfc"]
+[ext_resource type="ArrayMesh" uid="uid://djw03mgop76ha" path="res://tres/pisomj1.tres" id="12_anxfc"]
+[ext_resource type="Shader" uid="uid://dk2cod363cxl0" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gdshader" id="13_qelc2"]
+[ext_resource type="Texture2D" uid="uid://rugpn737rx8f" path="res://scenes/minigames/brinca_brinca/version1.png" id="14_hslpe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yciyb"]
 size = Vector3(1.4088745, 1, 0.71027374)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0aeh"]
+albedo_color = Color(0.3019608, 0.6509804, 1, 1)
+emission_enabled = true
+emission = Color(0.76440066, 0.8130042, 0.8925485, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_anxfc"]
+material = SubResource("StandardMaterial3D_s0aeh")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxyvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64r04"]
+albedo_color = Color(0.35686275, 0.30980393, 0.8117647, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qelc2"]
+material = SubResource("StandardMaterial3D_64r04")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_anxfc"]
+size = Vector3(9.584526, 0.3959961, 13.588135)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5h15d"]
+shader = ExtResource("13_qelc2")
+shader_parameter/sky_tex = ExtResource("14_hslpe")
+shader_parameter/speed = 0.01
+
+[sub_resource type="Sky" id="Sky_64r04"]
+sky_material = SubResource("ShaderMaterial_5h15d")
+
+[sub_resource type="Environment" id="Environment_qelc2"]
+background_mode = 2
+sky = SubResource("Sky_64r04")
 
 [node name="BrincaBrinca" type="Node3D" unique_id=1624046362]
 script = ExtResource("1_yciyb")
@@ -33,16 +65,16 @@ transform = Transform3D(1.9407986, 0, -1.6763806e-08, 0, 10.662595, 0, 0, 0, 1.0
 mesh = ExtResource("2_anxfc")
 
 [node name="PlatformA" parent="." unique_id=387782102 instance=ExtResource("2_mjjrl")]
-transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, -4.41, 0, -5.659)
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, -7.6360936, -0.34368014, -7.479822)
 
 [node name="PlatformB" parent="." unique_id=1819267468 instance=ExtResource("2_mjjrl")]
-transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, 4.433, 0, -5.722)
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, 7.4311275, 0, -7.7100544)
 
 [node name="PlatformC" parent="." unique_id=240454240 instance=ExtResource("2_mjjrl")]
-transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, -4.515, 0, -12.551)
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, -7.7757206, -0.29554772, -15.0372505)
 
 [node name="PlatformD" parent="." unique_id=1192031729 instance=ExtResource("2_mjjrl")]
-transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, 4.464, 0, -12.488)
+transform = Transform3D(-1.5660564e-07, 0, -4.7915754, 0, 0.38687912, 0, 3.5827193, 0, -2.0944641e-07, 7.5096498, -0.25264144, -15.303585)
 
 [node name="QuestionScreen" type="StaticBody3D" parent="." unique_id=869857431]
 transform = Transform3D(0.0068644173, 0, -15.845308, 0, 9.52062, 0, 0.95925695, 0, 0.11338861, 0.8138356, 6.846389, -19.734459)
@@ -51,18 +83,19 @@ transform = Transform3D(0.0068644173, 0, -15.845308, 0, 9.52062, 0, 0.95925695, 
 shape = SubResource("BoxShape3D_yciyb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionScreen" unique_id=19318133]
-transform = Transform3D(0.13401027, 2.3522897, -0.00027507544, -0.52782077, 0.59723073, -0.0003539058, -0.00017785834, 0.001019046, 0.8426026, -0.03800392, -0.14468724, -0.0275276)
-mesh = ExtResource("4_anxfc")
+transform = Transform3D(0.50472957, -0.00929106, 0.018625736, -0.00964102, 0.006666669, 0.96793246, 0.0072367825, 0.65692407, -0.009559472, -0.09133911, -0.0024376512, -0.027550668)
+mesh = SubResource("CylinderMesh_anxfc")
 
 [node name="ExerciseScreen" type="Label3D" parent="QuestionScreen" unique_id=807018670]
-transform = Transform3D(-8.940697e-08, 0, 1.0000005, 0, 1, 0, -0.99999976, 0, -4.3481123e-08, 0.5127907, 0.2786401, 0.00022215396)
+transform = Transform3D(-9.685755e-08, 0, 1.0000005, 0, 1, 0, -0.9999994, 0, -4.33065e-08, 0.17639732, 0.2786401, 7.642433e-05)
+modulate = Color(0.3338783, 0.34852636, 0.74359965, 1)
 text = "F(x) = 2x + 5"
 font = ExtResource("3_xduf2")
 font_size = 25
 outline_size = 10
 
 [node name="Answer" parent="QuestionScreen" unique_id=1239313563 instance=ExtResource("2_2ey3y")]
-transform = Transform3D(-6.7055225e-08, 0, 0.9999997, 0, 1, 0, -0.9999994, 0, -4.339381e-08, 0.506567, -0.23236477, 0.4474266)
+transform = Transform3D(-7.4505806e-08, 0, 0.99999964, 0, 1, 0, -0.9999993, 0, -4.3364707e-08, 0.1997757, -0.23236477, 0.4472936)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1281701433]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928472, 0.29742727, 0, 9.594474, 14.153978)
@@ -103,12 +136,6 @@ transform = Transform3D(1, 0, 0, 0, 0.9217075, 0.38788563, 0, -0.38788563, 0.921
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1400992787]
 
-[node name="joystick" parent="CanvasLayer" unique_id=1142671998 instance=ExtResource("9_067ss")]
-offset_left = 199.0
-offset_top = -232.0
-offset_right = 333.0
-offset_bottom = -96.0
-
 [node name="ContenedorSalto" type="Control" parent="CanvasLayer" unique_id=1320345402]
 layout_mode = 3
 anchors_preset = 3
@@ -123,9 +150,64 @@ grow_vertical = 0
 
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/ContenedorSalto" unique_id=441329837]
 scale = Vector2(1.59375, 1.640625)
-texture_normal = ExtResource("10_s0aeh")
+texture_normal = ExtResource("10_anxfc")
 passby_press = true
 action = "jump"
 visibility_mode = 1
+
+[node name="joystick" parent="CanvasLayer" unique_id=1142671998 instance=ExtResource("9_067ss")]
+offset_left = 167.0
+offset_top = -251.0
+offset_right = 492.0
+offset_bottom = -22.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=37077940]
+transform = Transform3D(24.431715, 0, 0.0060388017, 2.8325836e-05, 11.129207, -0.00019198269, -0.14754099, 0.0021366542, 0.9999817, 1.1734843, 6.7919025, -19.791788)
+mesh = SubResource("QuadMesh_qelc2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1174563202]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, 0, -2.408584, -5.142458)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=716412482]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, 0, -2.408584, -7.5794296)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=515708078]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, 0, -2.408584, -10.116609)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=324948265]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, 0, -2.408584, -12.636702)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1112018605]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, 0, -2.408584, -15.152058)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=1682764385]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, -2.8316782, -2.408584, -15.152058)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="." unique_id=1743939838]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, -2.8709326, -2.408584, -7.514168)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=1000494869]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, 2.8528237, -2.408584, -15.152058)
+mesh = ExtResource("12_anxfc")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=2022828338]
+transform = Transform3D(6.0881195, 0, 0, 0, 5.0728683, 0, 0, 0, 5.34764, 2.8528237, -2.408584, -7.6389666)
+mesh = ExtResource("12_anxfc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1364918513]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1422325926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10483909, -0.30912614, -10.176584)
+shape = SubResource("BoxShape3D_anxfc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=238464113]
+environment = SubResource("Environment_qelc2")
 
 [connection signal="body_entered" from="LoseArea3D" to="." method="_on_area_3d_body_entered"]

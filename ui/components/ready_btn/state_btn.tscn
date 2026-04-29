@@ -12,6 +12,22 @@ texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 modulate_color = Color(0.14117648, 0, 0.27450982, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yl7ha"]
+texture = ExtResource("2_o2sjl")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2sjl"]
+texture = ExtResource("2_o2sjl")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.14117648, 0, 0.27450982, 1)
+
 [node name="StateBtn" type="Control" unique_id=833618035]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 3
@@ -36,8 +52,12 @@ theme_override_constants/margin_bottom = 14
 [node name="state_btn" type="Button" parent="MarginContainer" unique_id=1488786214]
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.4745098, 0.9764706, 1)
 theme_override_fonts/font = ExtResource("1_yl7ha")
 theme_override_styles/normal = SubResource("StyleBoxTexture_xi7cc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yl7ha")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o2sjl")
 text = "listo!"
 script = ExtResource("1_dk77w")
 
