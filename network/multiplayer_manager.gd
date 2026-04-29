@@ -8,6 +8,7 @@ signal countdown_updated
 signal game_started
 signal game_loaded
 
+var match_response : MatchResponse
 var match_id : String
 var match_code : String
 var players := {}
@@ -27,7 +28,10 @@ const EXERCISES_LOADED_OP_CODE = 8
 const EVALUATE_ANSWER_OP_CODE = 9
 	
 func start_match():
-	var result = await NetworkManager.socket.rpc_async("create_match", "")
+	var payload = JSON.stringify({
+		"accessToken": TokenManager.access_token
+	})
+	var result = await NetworkManager.socket.rpc_async("create_match", payload)
 	
 	if result.is_exception():
 		print("Match error: ", result.get_exception().message)
@@ -41,6 +45,9 @@ func start_match():
 		
 	match_id = response.matchId
 	match_code = response.code
+	match_response = MatchResponse.from_dict(response.match)
+	print("MATCH CREADO")
+	print(match_response.to_dict())
 	
 	NetworkManager.socket.received_match_state.connect(_on_match_state)
 	NetworkManager.socket.received_match_presence.connect(_on_presence)
@@ -56,7 +63,14 @@ func start_match():
 	started.emit()
 
 func join_match(code: String):
-	var payload = JSON.stringify({"code": code})
+	
+	if not TokenManager.access_token:
+		get_tree().change_scene_to_file("res://scenes/main/login/login.tscn")
+	
+	var payload = JSON.stringify({
+		"code": code,
+		"accessToken": TokenManager.access_token
+	})
 	var result = await NetworkManager.socket.rpc_async("join_match_by_code", payload)
 	
 	if result.is_exception():
