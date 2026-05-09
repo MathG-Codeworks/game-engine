@@ -7,7 +7,7 @@ signal login_error(message: String)
 const AUTH_PATH: String = "user://auth.cfg"
 const AUTH_SECTION: String = "auth"
 
-@export var API_URL: String = "https://backend-juco.onrender.com"
+@export var API_URL: String = "https://mathg-api-v1.up.railway.app"
 var LOGIN_URL: String = ""
 var PROFILE_URL: String = ""
 
