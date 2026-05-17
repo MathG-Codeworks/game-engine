@@ -36,7 +36,7 @@ func _physics_process(delta: float):
 		_process_local_input(delta)
 		
 		# Sincronización Multijugador
-		if global_position.distance_to(last_sent_position) > 0.1 or abs(rotation_degrees.y - last_sent_rotation) > 1:
+		if global_position.distance_to(last_sent_position) > 0.001 or abs(rotation_degrees.y - last_sent_rotation) > 1:
 			var current_anim = anim.current_animation if anim.is_playing() else ""
 			MultiplayerManager._send_player_state(global_position, rotation_degrees.y, current_anim)
 			last_sent_position = global_position
@@ -129,7 +129,6 @@ func respawn(at_position):
 	anim.stop()
 
 func set_label(value: String):
-	print(value)
 	label_user_name.text = value
 	await get_tree().process_frame
 	_update_underline_width()

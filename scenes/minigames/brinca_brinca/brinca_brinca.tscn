@@ -347,6 +347,7 @@ shape = SubResource("BoxShape3D_anxfc")
 environment = SubResource("Environment_qelc2")
 
 [node name="PostGameMenu" type="CanvasLayer" parent="." unique_id=507308113]
+visible = false
 script = ExtResource("15_hslpe")
 
 [node name="Background" type="ColorRect" parent="PostGameMenu" unique_id=1965283583]
@@ -390,7 +391,7 @@ theme_override_constants/separation = 69
 alignment = 1
 
 [node name="BotonRejugar" type="Button" parent="PostGameMenu/Background/Container/HBoxContainer" unique_id=381997429]
-custom_minimum_size = Vector2(180, 45)
+custom_minimum_size = Vector2(220, 45)
 layout_mode = 2
 size_flags_vertical = 8
 localize_numeral_system = false

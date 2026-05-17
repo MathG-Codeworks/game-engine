@@ -27,6 +27,9 @@ const COUNTDOWN_CANCELLED_OP_CODE = 6
 const GAME_STARTED_OP_CODE = 7
 const EXERCISES_LOADED_OP_CODE = 8
 const EVALUATE_ANSWER_OP_CODE = 9
+const GAME_REPLAY_OP_CODE = 10
+const PLAYER_REPLAY_OP_CODE = 11
+const PLAYER_NO_REPLAY_OP_CODE = 12
 	
 func start_match():
 	var payload = JSON.stringify({
@@ -47,8 +50,6 @@ func start_match():
 	match_id = response.matchId
 	match_code = response.code
 	match_response = MatchResponse.from_dict(response.match)
-	print("MATCH CREADO")
-	print(match_response.to_dict())
 	
 	NetworkManager.socket.received_match_state.connect(_on_match_state)
 	NetworkManager.socket.received_match_presence.connect(_on_presence)
@@ -144,6 +145,9 @@ func _on_match_state(state):
 				int(data.round_intermission)
 			)
 			game_loaded.emit()
+		
+		GAME_REPLAY_OP_CODE:
+			var data = JSON.parse_string(state.data)
 			
 func _on_presence(event):
 	for join in event.joins:
@@ -225,3 +229,18 @@ func leave_match() -> void:
 	
 	if NetworkManager.socket.received_match_presence.is_connected(_on_presence):
 		NetworkManager.socket.received_match_presence.disconnect(_on_presence)
+
+func mark_player_replay(p_replay: bool) -> void:
+	if match_id == "":
+		return
+		
+	var payload = JSON.stringify({
+		"matchId": match_id
+	})
+	
+	NetworkManager.client.rpc_async(
+		NetworkManager.session, 
+		"set_player_replay" if p_replay else "set_player_no_replay", 
+		payload
+	)
+	

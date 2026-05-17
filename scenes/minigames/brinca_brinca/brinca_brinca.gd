@@ -73,8 +73,6 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Character:
-		print(body.label_user_name)
-
 		disabled_players.append(body)
 
 		body.visible = false
@@ -100,9 +98,6 @@ func _on_area_3d_platform_body_entered(body: Node3D, platform: StaticBody3D) -> 
 
 		if color:
 			platform.add_color(color)
-
-		if platform == correct_platform:
-			print("estas en la respuesta correcta")
 
 func _on_area_3d_platform_body_exited(body: Node3D, platform) -> void:
 	if body is Character:

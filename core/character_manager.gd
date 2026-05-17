@@ -15,12 +15,15 @@ func _on_ranking_updated():
 				character.set_underline(ranking_player.color)
 
 func spawn_local_player():
+	print("players: " + str(MultiplayerManager.players.size()))
 	var character = character_scene.instantiate()
 	get_tree().current_scene.add_child(character)
 
 	character.is_local_player = true
-	character.set_label(NetworkManager.session.username)
+	character.set_label(NetworkManager.session.username + " (yo)")
 	MultiplayerManager.players[NetworkManager.session.user_id] = character
+	
+	_on_ranking_updated()
 
 func spawn_pending_players():
 	for player in MultiplayerManager.pending_players:
@@ -43,3 +46,10 @@ func spawn_player(player):
 	character.set_label(player.username)
 	MultiplayerManager.players[player.user_id] = character
 	_on_ranking_updated()
+
+func clear_players():
+	for player in MultiplayerManager.players.values():
+		if is_instance_valid(player):
+			player.queue_free()
+
+	MultiplayerManager.players.clear()

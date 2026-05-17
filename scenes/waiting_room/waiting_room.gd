@@ -3,6 +3,7 @@ extends Node3D
 @onready var label_countdown := $LabelCountDown
 
 func _ready() -> void:
+	CharacterManager.clear_players()
 	CharacterManager.spawn_local_player()
 	MultiplayerManager.spawned.connect(CharacterManager.spawn_pending_players)
 	MultiplayerManager.countdown_updated.connect(_on_countdown_updated)
@@ -19,4 +20,6 @@ func _on_countdown_updated():
 	label_countdown.text = str(int(MultiplayerManager.countdown)) if MultiplayerManager.countdown != null else "5"
 
 func _on_game_started():
+	MultiplayerManager.players.clear()
+	
 	get_tree().change_scene_to_file("res://scenes/minigames/brinca_brinca/loading.tscn")
