@@ -258,9 +258,9 @@ text = "Entrar!"
 
 [node name="BackButton" type="Button" parent="Control" unique_id=617214914]
 layout_mode = 0
-offset_left = 1032.0
+offset_left = 1015.0
 offset_top = 38.0
-offset_right = 1086.0
+offset_right = 1100.0
 offset_bottom = 85.0
 theme_override_colors/font_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
 theme_override_colors/font_pressed_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
@@ -284,7 +284,7 @@ offset_left = 200.0
 offset_top = 505.0
 offset_right = 457.0
 offset_bottom = 580.0
-theme_override_colors/font_color = Color(0.63489264, 0.2194145, 0.99999994, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_placeholder_color = Color(0.7529412, 0.5176471, 0.9882353, 0.6)
 theme_override_colors/caret_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
 theme_override_fonts/font = ExtResource("2_85r1o")
@@ -301,7 +301,7 @@ offset_left = 502.0
 offset_top = 505.0
 offset_right = 759.0
 offset_bottom = 580.0
-theme_override_colors/font_color = Color(0.63529414, 0.21960784, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_placeholder_color = Color(0.7529412, 0.5176471, 0.9882353, 0.6)
 theme_override_colors/caret_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
 theme_override_fonts/font = ExtResource("2_85r1o")
@@ -323,7 +323,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.23529412)
+color = Color(0, 0, 0, 0.54901963)
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=679960162]
 visible = false
@@ -340,14 +340,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wm7o2")
 
-[node name="ErrorMessageLabel" type="RichTextLabel" parent="CanvasLayer/Panel" unique_id=367683819]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1045045675]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.63529414, 0.21960784, 1, 1)
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ErrorMessageLabel" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer" unique_id=367683819]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_85r1o")
 theme_override_font_sizes/normal_font_size = 20
 horizontal_alignment = 1

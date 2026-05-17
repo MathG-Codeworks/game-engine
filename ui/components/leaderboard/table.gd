@@ -5,8 +5,8 @@ extends Control
 @onready var rows = $MarginContainer/Rows
 
 @export var data: DataFrame
-@export var padding: int = 10
-@export var row_height: int = 50
+@export var padding: int = 30
+@export var row_height: int = 60
 @export var row_colors: Dictionary = {}
 
 func _ready() -> void:
@@ -60,3 +60,6 @@ func render():
 					cell.text = str(value)
 					
 				row.add_cell(cell)
+				
+		var bottom_row = tableRow.instantiate()
+		rows.add_child(bottom_row)

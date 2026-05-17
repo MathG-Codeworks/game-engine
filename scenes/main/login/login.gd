@@ -6,7 +6,7 @@ extends Node
 
 @onready var error_message_container: ColorRect = $CanvasLayer/Container
 @onready var error_message_panel: Panel = $CanvasLayer/Panel
-@onready var error_message_label: RichTextLabel = $CanvasLayer/Panel/ErrorMessageLabel
+@onready var error_message_label: RichTextLabel = $CanvasLayer/Panel/MarginContainer/ErrorMessageLabel
 
 func _on_login_button_pressed() -> void:
 	login_button.disabled = true

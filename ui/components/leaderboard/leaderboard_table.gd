@@ -13,7 +13,6 @@ func _update_ranking_table():
 	
 	for i in range(MultiplayerManager.ranking_players.size()):
 		var player = MultiplayerManager.ranking_players[i]
-		print(player)
 		data.append([
 			player.user_id, #Oculto
 			i + 1,

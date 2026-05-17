@@ -134,6 +134,7 @@ func respawn(at_position):
 	anim.stop()
 
 func set_label(value: String):
+	print(value)
 	label_user_name.text = value
 	await get_tree().process_frame
 	_update_underline_width()
