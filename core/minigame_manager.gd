@@ -27,3 +27,8 @@ func evaluate_answer(operation: String, answer: String) -> void:
 		MultiplayerManager.EVALUATE_ANSWER_OP_CODE,
 		data
 	)
+func reset() -> void:
+	exercises.clear()
+	round_duration = 0
+	round_intermission = 0
+	current_minigame = BRINCA_BRINCA

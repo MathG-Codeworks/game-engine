@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c0pylbasd6qlw" path="res://scenes/waiting_room/wall-banner.glb" id="7_f86l8"]
 [ext_resource type="Texture2D" uid="uid://b6kpu63n42tbm" path="res://joystick/button_hexagon.png" id="8_3oiwl"]
 [ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="8_aie0g"]
+[ext_resource type="Shader" uid="uid://dk2cod363cxl0" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gdshader" id="10_uyryj"]
+[ext_resource type="Texture2D" uid="uid://rugpn737rx8f" path="res://scenes/minigames/brinca_brinca/version1.png" id="11_107xt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1yeck"]
 size = Vector3(30, 1, 30)
@@ -18,6 +20,18 @@ size = Vector3(0.098082274, 3.8, 1.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f86l8"]
 size = Vector3(1.0237427, 4.928772, 33.167007)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npd47"]
+shader = ExtResource("10_uyryj")
+shader_parameter/sky_tex = ExtResource("11_107xt")
+shader_parameter/speed = 0.005
+
+[sub_resource type="Sky" id="Sky_64r04"]
+sky_material = SubResource("ShaderMaterial_npd47")
+
+[sub_resource type="Environment" id="Environment_17vga"]
+background_mode = 2
+sky = SubResource("Sky_64r04")
 
 [node name="WaitingRoom" type="Node3D" unique_id=2022545015]
 script = ExtResource("1_1yeck")
@@ -492,3 +506,6 @@ offset_left = 103.0
 offset_top = -348.0
 offset_right = 428.0
 offset_bottom = -119.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=291989478]
+environment = SubResource("Environment_17vga")

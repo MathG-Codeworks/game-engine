@@ -26,7 +26,11 @@ var character_scene: PackedScene = preload("res://scenes/character/character.tsc
 @onready var leaderboard_table = $leaderboardTable
 @onready var spectator_camera: Camera3D = $SpectatorCamera3D
 
+# NUEVO
+@onready var post_game_menu = $PostGameMenu
+
 @onready var correct_platform: StaticBody3D
+
 
 var spectate_target: Character
 var disabled_players: Array[Character] = []
@@ -167,6 +171,12 @@ func _on_round_finished(_round_number):
 			platform.get_node("CollisionShape3D").disabled = true
 			platform.get_node("Area3D").monitoring = false
 
-
+# ACTUALIZADO
 func _on_game_finished():
-	print("Juego terminado")
+	var players = get_tree().get_nodes_in_group("players")
+	for player in players:
+		if player is Character:
+			player.set_physics_process(false)
+			player.set_process(false)
+	
+	post_game_menu.show_menu()

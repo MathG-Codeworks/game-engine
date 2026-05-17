@@ -44,3 +44,7 @@ func _on_intermission_finished():
 func _on_round_time_up():
 	emit_signal("round_finished", current_round)
 	CountdownManager.start_restart_phase(intermission_duration)
+func reset() -> void:
+	current_round = 0
+	max_rounds = 3
+	is_running = false
