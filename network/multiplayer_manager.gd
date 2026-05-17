@@ -16,6 +16,7 @@ var pending_players := []
 var ranking_players := []
 var countdown = null
 var character_scene : PackedScene = preload("res://scenes/character/character.tscn")
+var auto_start: bool = false
 
 const OP_PLAYER_STATE = 1
 const RANKING_OP_STATE = 2
@@ -204,3 +205,23 @@ func send_minigame_loaded(minigame: int):
 		"scene_loaded",
 		payload
 	)
+
+# NUEVA FUNCION
+func leave_match() -> void:
+	if match_id == "":
+		return
+	
+	await NetworkManager.socket.leave_match_async(match_id)
+	
+	match_id = ""
+	match_code = ""
+	players.clear()
+	pending_players.clear()
+	ranking_players.clear()
+	countdown = null
+	
+	if NetworkManager.socket.received_match_state.is_connected(_on_match_state):
+		NetworkManager.socket.received_match_state.disconnect(_on_match_state)
+	
+	if NetworkManager.socket.received_match_presence.is_connected(_on_presence):
+		NetworkManager.socket.received_match_presence.disconnect(_on_presence)

@@ -21,7 +21,6 @@ var last_sent_rotation: float
 @onready var underline_user_name: MeshInstance3D = $Underline
 
 # REFERENCIA AL JOYSTICK: 
-# Buscamos el nodo en el árbol. Asegúrate de que el nodo se llame "Joystick"
 @onready var joystick = get_tree().root.find_child("joystick", true, false)
 
 func _ready() -> void:
@@ -51,19 +50,15 @@ func _physics_process(delta: float):
 func _process_local_input(delta):
 	var direction = Vector3.ZERO
 
-	# 1. Entrada de Teclado (PC)
 	direction.x = Input.get_axis("left", "right")
 	direction.z = Input.get_axis("up", "down")
 
-	# 2. Entrada de Joystick (Mobile)
-	# Si el joystick existe y se está moviendo, tiene prioridad
 	if joystick and joystick.output_vector != Vector2.ZERO:
 		direction.x = joystick.output_vector.x
 		direction.z = joystick.output_vector.y # Y del joystick es Z en 3D
 
 	if direction != Vector3.ZERO:
-		# Solo normalizamos si la magnitud es mayor a 1 (para teclado)
-		# Esto permite que el joystick maneje velocidades graduales
+		
 		if direction.length() > 1.0:
 			direction = direction.normalized()
 

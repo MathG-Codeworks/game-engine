@@ -14,6 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://djw03mgop76ha" path="res://tres/pisomj1.tres" id="12_anxfc"]
 [ext_resource type="Shader" uid="uid://dk2cod363cxl0" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gdshader" id="13_qelc2"]
 [ext_resource type="Texture2D" uid="uid://rugpn737rx8f" path="res://scenes/minigames/brinca_brinca/version1.png" id="14_hslpe"]
+[ext_resource type="Script" uid="uid://c6dma1jtr7bup" path="res://scenes/minigames/brinca_brinca/post_game_menu.gd" id="15_hslpe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yciyb"]
 size = Vector3(1.4088745, 1, 0.71027374)
@@ -43,12 +44,148 @@ shader = ExtResource("13_qelc2")
 shader_parameter/sky_tex = ExtResource("14_hslpe")
 shader_parameter/speed = 0.005
 
-[sub_resource type="Sky" id="Sky_64r04"]
+[sub_resource type="Sky" id="Sky_hslpe"]
 sky_material = SubResource("ShaderMaterial_5h15d")
 
 [sub_resource type="Environment" id="Environment_qelc2"]
 background_mode = 2
-sky = SubResource("Sky_64r04")
+sky = SubResource("Sky_hslpe")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hslpe"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmsy6"]
+bg_color = Color(1, 1, 1, 0.0627451)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h15d"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9098039, 0.4745098, 0.9764706, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4p0h"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psimf"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65882355, 0.33333334, 0.96862745, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn085"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0mus"]
+bg_color = Color(1, 1, 1, 0.0627451)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6fsi"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9098039, 0.4745098, 0.9764706, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4argw"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blc80"]
+bg_color = Color(1, 1, 1, 0.078431375)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65882355, 0.33333334, 0.96862745, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="BrincaBrinca" type="Node3D" unique_id=1624046362]
 script = ExtResource("1_yciyb")
@@ -119,17 +256,16 @@ script = ExtResource("4_cijl1")
 
 [node name="leaderboardTable" parent="." unique_id=454723013 instance=ExtResource("6_bjo2o")]
 anchors_preset = -1
-anchor_left = 0.31500003
-anchor_top = 0.21700001
-anchor_right = 0.688
-anchor_bottom = 0.31800002
-offset_left = 0.1199646
-offset_top = -4.6159973
-offset_right = 0.4239502
-offset_bottom = -0.06401062
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 369.0
+offset_top = 99.0
+offset_right = 799.0
+offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="SpectatorCamera3D" type="Camera3D" parent="." unique_id=1520097101]
 transform = Transform3D(1, 0, 0, 0, 0.9217075, 0.38788563, 0, -0.38788563, 0.9217075, 0, 5.230862, 5.386362)
@@ -210,4 +346,81 @@ shape = SubResource("BoxShape3D_anxfc")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=238464113]
 environment = SubResource("Environment_qelc2")
 
+[node name="PostGameMenu" type="CanvasLayer" parent="." unique_id=507308113]
+script = ExtResource("15_hslpe")
+
+[node name="Background" type="ColorRect" parent="PostGameMenu" unique_id=1965283583]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03529412, 0, 0.08235294, 0.8)
+
+[node name="Container" type="VBoxContainer" parent="PostGameMenu/Background" unique_id=1161279872]
+custom_minimum_size = Vector2(700, 450)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -46.0
+offset_right = 352.0
+offset_bottom = 404.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="PostGameMenu/Background/Container" unique_id=855696461]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.8, 0, 1, 1)
+theme_override_fonts/font = ExtResource("3_xduf2")
+theme_override_font_sizes/font_size = 45
+text = "¡Juego Terminado!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PostGameMenu/Background/Container" unique_id=1979541666]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 69
+alignment = 1
+
+[node name="BotonRejugar" type="Button" parent="PostGameMenu/Background/Container/HBoxContainer" unique_id=381997429]
+custom_minimum_size = Vector2(180, 45)
+layout_mode = 2
+size_flags_vertical = 8
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 0.8, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.4745098, 0.9764706, 1)
+theme_override_fonts/font = ExtResource("3_xduf2")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_hslpe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wmsy6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5h15d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f4p0h")
+theme_override_styles/focus = SubResource("StyleBoxFlat_psimf")
+text = "Volver a Jugar"
+
+[node name="BotonWaitingRoom" type="Button" parent="PostGameMenu/Background/Container/HBoxContainer" unique_id=851556135]
+custom_minimum_size = Vector2(180, 45)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7529412, 0.5176471, 0.9882353, 1)
+theme_override_colors/font_hover_color = Color(0.9098039, 0.4745098, 0.9764706, 1)
+theme_override_fonts/font = ExtResource("3_xduf2")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn085")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p0mus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p6fsi")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4argw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_blc80")
+text = "Volver al Lobby"
+
 [connection signal="body_entered" from="LoseArea3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="pressed" from="PostGameMenu/Background/Container/HBoxContainer/BotonRejugar" to="." method="_on_boton_rejugar_pressed"]
+[connection signal="pressed" from="PostGameMenu/Background/Container/HBoxContainer/BotonWaitingRoom" to="." method="_on_boton_waiting_room_pressed"]

@@ -8,11 +8,14 @@ func _ready() -> void:
 	MultiplayerManager.countdown_updated.connect(_on_countdown_updated)
 	MultiplayerManager.game_started.connect(_on_game_started)
 	CharacterManager.spawn_pending_players()
+	
+	if MultiplayerManager.auto_start:
+		MultiplayerManager.auto_start = false
+		await MultiplayerManager.start_match()
 
 func _on_countdown_updated():
 	if label_countdown.visible == (MultiplayerManager.countdown == null):
 		label_countdown.visible = MultiplayerManager.countdown != null
-		
 	label_countdown.text = str(int(MultiplayerManager.countdown)) if MultiplayerManager.countdown != null else "5"
 
 func _on_game_started():

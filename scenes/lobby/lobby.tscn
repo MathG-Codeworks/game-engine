@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://crxc176iuwbew" path="res://puerta/flag-banner-short.glb" id="11_5l4x7"]
 [ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="12_a0ps3"]
 [ext_resource type="Texture2D" uid="uid://b6kpu63n42tbm" path="res://joystick/button_hexagon.png" id="12_tsrmh"]
+[ext_resource type="Shader" uid="uid://dk2cod363cxl0" path="res://scenes/minigames/brinca_brinca/brinca_brinca.gdshader" id="14_5nxcp"]
+[ext_resource type="Texture2D" uid="uid://rugpn737rx8f" path="res://scenes/minigames/brinca_brinca/version1.png" id="15_e624k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(30, 1, 30)
@@ -33,6 +35,18 @@ size = Vector3(2.7416992, 2.58667, 6.0966797)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8hcm"]
 size = Vector3(2.6138973, 3.0184937, 1.8118896)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6j1d"]
+shader = ExtResource("14_5nxcp")
+shader_parameter/sky_tex = ExtResource("15_e624k")
+shader_parameter/speed = 0.005
+
+[sub_resource type="Sky" id="Sky_5nxcp"]
+sky_material = SubResource("ShaderMaterial_r6j1d")
+
+[sub_resource type="Environment" id="Environment_4pl0j"]
+background_mode = 2
+sky = SubResource("Sky_5nxcp")
 
 [node name="Lobby" type="Node3D" unique_id=1443995128]
 script = ExtResource("1_ej4tk")
@@ -548,6 +562,9 @@ offset_left = 131.0
 offset_top = -266.0
 offset_right = 456.0
 offset_bottom = -37.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1716794590]
+environment = SubResource("Environment_4pl0j")
 
 [connection signal="body_entered" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_entered"]
 [connection signal="body_exited" from="Multiplayer_options" to="." method="_on_multiplayer_options_body_exited"]
