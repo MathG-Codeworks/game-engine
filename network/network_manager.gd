@@ -10,9 +10,9 @@ signal authenticated
 signal socket_connected
 
 const SERVER_KEY = "defaultkey"
-const HOST = "localhost"
-const PORT = 7350
-const SCHEME = "http"
+const HOST = "nakama-v1.up.railway.app"
+const PORT = 443
+const SCHEME = "https"
 const PREFIX_USER_ID = "user_"
 
 func _ready():

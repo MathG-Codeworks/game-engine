@@ -44,10 +44,6 @@ func _ready() -> void:
 	RoundManager.round_started.connect(_on_round_started)
 	RoundManager.round_finished.connect(_on_round_finished)
 	RoundManager.all_rounds_finished.connect(_on_game_finished)
-	
-	print(MinigameManager.exercises.size())
-	print(MinigameManager.round_duration)
-	print(MinigameManager.round_intermission)
 
 	RoundManager.start_game(
 		MinigameManager.exercises.size(),
