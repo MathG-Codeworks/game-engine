@@ -4,6 +4,7 @@ var client : NakamaClient
 var session : NakamaSession
 var username : String
 var socket : NakamaSocket
+var user_id: int
 var session_id : int
 
 signal authenticated
@@ -36,6 +37,7 @@ func authenticate_with_nakama(id: int, username: String):
 
 	self.session.username = username
 	self.username = username
+	self.user_id = id
 	
 	if await _create_session() == false:
 		return false

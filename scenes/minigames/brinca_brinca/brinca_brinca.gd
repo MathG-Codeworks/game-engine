@@ -30,6 +30,7 @@ var character_scene: PackedScene = preload("res://scenes/character/character.tsc
 @onready var post_game_menu = $PostGameMenu
 
 @onready var correct_platform: StaticBody3D
+@onready var description_label = $Description/Label
 
 
 var spectate_target: Character
@@ -46,27 +47,29 @@ func _ready() -> void:
 	RoundManager.all_rounds_finished.connect(_on_game_finished)
 
 	RoundManager.start_game(
-		MinigameManager.exercises.size(),
+		MultiplayerManager.match_response.rounds.size(),
 		MinigameManager.round_duration,
 		MinigameManager.round_intermission
 	)
-#
-	#var areas = [
-		#area_platform1,
-		#area_platform2,
-		#area_platform3,
-		#area_platform4
-	#]
-	#
-	#for i in areas.size():
-		#areas[i].body_entered.connect(
-			#_on_area_3d_platform_body_entered.bind(answer_platforms[i])
-		#)
-		#areas[i].body_exited.connect(
-			#_on_area_3d_platform_body_exited.bind(answer_platforms[i])
-		#)
+
+	self.description_label.text = MinigameManager.description
+
+	var areas = [
+		area_platform1,
+		area_platform2,
+		area_platform3,
+		area_platform4
+	]
+	
+	for i in areas.size():
+		areas[i].body_entered.connect(
+			_on_area_3d_platform_body_entered.bind(answer_platforms[i])
+		)
+		areas[i].body_exited.connect(
+			_on_area_3d_platform_body_exited.bind(answer_platforms[i])
+		)
 		
-func _process(delta):
+func _process(_delta):
 	if spectate_target:
 		spectator_camera.global_position = spectate_target.global_position + Vector3(0, 4.5, 6)
 		spectator_camera.look_at(spectate_target.global_position)
@@ -156,6 +159,7 @@ func _on_round_finished(_round_number):
 			if body is Character and body.is_local_player:
 
 				MinigameManager.evaluate_answer(
+					MultiplayerManager.match_response.rounds[_round_number - 1].id,
 					self.current_exercise.operation,
 					platform.option.result
 				)
@@ -166,12 +170,13 @@ func _on_round_finished(_round_number):
 			platform.get_node("CollisionShape3D").disabled = true
 			platform.get_node("Area3D").monitoring = false
 
-# ACTUALIZADO
 func _on_game_finished():
 	var players = get_tree().get_nodes_in_group("players")
 	for player in players:
 		if player is Character:
 			player.set_physics_process(false)
 			player.set_process(false)
+
+	print("Game Finished")
 	
 	post_game_menu.show_menu()

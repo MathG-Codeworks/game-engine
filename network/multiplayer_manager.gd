@@ -138,8 +138,10 @@ func _on_match_state(state):
 			
 		EXERCISES_LOADED_OP_CODE:
 			var data = JSON.parse_string(state.data)
+			print(data);
 			MinigameManager.update(
 				int(data.minigame),
+				data.description,
 				data.exercises,
 				int(data.round_duration),
 				int(data.round_intermission)
@@ -147,7 +149,7 @@ func _on_match_state(state):
 			game_loaded.emit()
 		
 		GAME_REPLAY_OP_CODE:
-			var data = JSON.parse_string(state.data)
+			pass
 			
 func _on_presence(event):
 	for join in event.joins:
@@ -210,7 +212,6 @@ func send_minigame_loaded(minigame: int):
 		payload
 	)
 
-# NUEVA FUNCION
 func leave_match() -> void:
 	if match_id == "":
 		return

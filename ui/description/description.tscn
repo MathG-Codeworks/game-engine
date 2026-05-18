@@ -10,17 +10,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="." unique_id=1381431815]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.038000003
-anchor_top = 0.326
-anchor_right = 0.042000003
-anchor_bottom = 0.326
-offset_left = 4.223999
-offset_top = -0.2480011
-offset_right = 350.616
-offset_bottom = 101.752
-theme_override_fonts/font = ExtResource("1_7liwk")
-theme_override_font_sizes/font_size = 22
-text = "pequeña descripcion del ejercicio"
+[node name="Label" type="RichTextLabel" parent="." unique_id=2077376733]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 135.0
+offset_right = 448.0
+offset_bottom = 285.0
+theme_override_fonts/normal_font = ExtResource("1_7liwk")
+theme_override_font_sizes/normal_font_size = 18
+fit_content = true
