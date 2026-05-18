@@ -44,27 +44,31 @@ func _ready() -> void:
 	RoundManager.round_started.connect(_on_round_started)
 	RoundManager.round_finished.connect(_on_round_finished)
 	RoundManager.all_rounds_finished.connect(_on_game_finished)
+	
+	print(MinigameManager.exercises.size())
+	print(MinigameManager.round_duration)
+	print(MinigameManager.round_intermission)
 
 	RoundManager.start_game(
 		MinigameManager.exercises.size(),
 		MinigameManager.round_duration,
 		MinigameManager.round_intermission
 	)
-
-	var areas = [
-		area_platform1,
-		area_platform2,
-		area_platform3,
-		area_platform4
-	]
-	
-	for i in areas.size():
-		areas[i].body_entered.connect(
-			_on_area_3d_platform_body_entered.bind(answer_platforms[i])
-		)
-		areas[i].body_exited.connect(
-			_on_area_3d_platform_body_exited.bind(answer_platforms[i])
-		)
+#
+	#var areas = [
+		#area_platform1,
+		#area_platform2,
+		#area_platform3,
+		#area_platform4
+	#]
+	#
+	#for i in areas.size():
+		#areas[i].body_entered.connect(
+			#_on_area_3d_platform_body_entered.bind(answer_platforms[i])
+		#)
+		#areas[i].body_exited.connect(
+			#_on_area_3d_platform_body_exited.bind(answer_platforms[i])
+		#)
 		
 func _process(delta):
 	if spectate_target:

@@ -6,12 +6,14 @@ var current_minigame : int = BRINCA_BRINCA
 var exercises := []
 var round_duration : int = 0
 var round_intermission : int = 0
+var exercises_loaded := false
 
 func update(p_current_minigame, p_exercises, p_round_duration : int, p_round_intermission : int) -> void:
 	self.current_minigame = p_current_minigame
 	self.exercises = p_exercises
 	self.round_duration = p_round_duration
 	self.round_intermission = p_round_intermission
+	self.exercises_loaded = true
 
 func evaluate_answer(operation: String, answer: String) -> void:
 	if not MultiplayerManager.match_id:
@@ -28,7 +30,8 @@ func evaluate_answer(operation: String, answer: String) -> void:
 		data
 	)
 func reset() -> void:
-	exercises.clear()
-	round_duration = 0
-	round_intermission = 0
-	current_minigame = BRINCA_BRINCA
+	self.exercises.clear()
+	self.round_duration = 0
+	self.round_intermission = 0
+	self.current_minigame = BRINCA_BRINCA
+	self.exercises_loaded = false

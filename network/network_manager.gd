@@ -2,6 +2,7 @@ extends Node
 
 var client : NakamaClient
 var session : NakamaSession
+var username : String
 var socket : NakamaSocket
 var session_id : int
 
@@ -9,9 +10,9 @@ signal authenticated
 signal socket_connected
 
 const SERVER_KEY = "defaultkey"
-const HOST = "nakama-v1.up.railway.app"
-const PORT = 443
-const SCHEME = "https"
+const HOST = "localhost"
+const PORT = 7350
+const SCHEME = "http"
 const PREFIX_USER_ID = "user_"
 
 func _ready():
@@ -25,14 +26,16 @@ func authenticate_with_nakama(id: int, username: String):
 	if nakama_auth.is_exception():
 		return false
 		
-	session = nakama_auth
-	session.username = username
+	self.session = nakama_auth
 	
 	await client.update_account_async(
 		session,
 		username,
 		username
 	)
+
+	self.session.username = username
+	self.username = username
 	
 	if await _create_session() == false:
 		return false

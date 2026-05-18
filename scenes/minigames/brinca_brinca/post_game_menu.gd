@@ -5,7 +5,7 @@ var replay := true
 @onready var BotonRejugar = $Background/Container/HBoxContainer/BotonRejugar
 
 func _ready() -> void:
-	visible = true
+	visible = false
 	_update_rejugar()
 	MultiplayerManager.ranking_updated.connect(_update_rejugar)
 	$Background/Container/HBoxContainer/BotonRejugar.pressed.connect(_on_play_again)

@@ -15,10 +15,10 @@ func _ready():
 	CountdownManager.restart_countdown_finished.connect(_on_intermission_finished)
 
 func start_game(total_rounds: int, duration: int, intermission: int = 3):
-	max_rounds = total_rounds
-	round_duration = duration
-	intermission_duration = intermission
-	is_running = true
+	self.max_rounds = total_rounds
+	self.round_duration = duration
+	self.intermission_duration = intermission
+	self.is_running = true
 	
 	_start_next_round()
 

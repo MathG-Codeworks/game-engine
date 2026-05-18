@@ -15,12 +15,11 @@ func _on_ranking_updated():
 				character.set_underline(ranking_player.color)
 
 func spawn_local_player():
-	print("players: " + str(MultiplayerManager.players.size()))
 	var character = character_scene.instantiate()
 	get_tree().current_scene.add_child(character)
 
 	character.is_local_player = true
-	character.set_label(NetworkManager.session.username + " (yo)")
+	character.set_label(NetworkManager.username + " (yo)")
 	MultiplayerManager.players[NetworkManager.session.user_id] = character
 	
 	_on_ranking_updated()
