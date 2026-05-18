@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="3_xduf2"]
 [ext_resource type="Script" uid="uid://c8gxwrchr3lbb" path="res://ui/components/round/round.gd" id="4_cijl1"]
 [ext_resource type="PackedScene" uid="uid://bel7j8cw4x5nj" path="res://ui/components/leaderboard/leaderboardTable.tscn" id="6_bjo2o"]
+[ext_resource type="PackedScene" uid="uid://bb5asupvfrc18" path="res://ui/description/description.tscn" id="7_5h15d"]
 [ext_resource type="PackedScene" uid="uid://c73w1q87dle10" path="res://joystick/joystick.tscn" id="9_067ss"]
 [ext_resource type="Texture2D" uid="uid://b6kpu63n42tbm" path="res://joystick/button_hexagon.png" id="10_anxfc"]
 [ext_resource type="ArrayMesh" uid="uid://djw03mgop76ha" path="res://tres/pisomj1.tres" id="12_anxfc"]
@@ -224,15 +225,15 @@ transform = Transform3D(0.50472957, -0.00929106, 0.018625736, -0.00964102, 0.006
 mesh = SubResource("CylinderMesh_anxfc")
 
 [node name="ExerciseScreen" type="Label3D" parent="QuestionScreen" unique_id=807018670]
-transform = Transform3D(-9.685755e-08, 0, 1.0000005, 0, 1, 0, -0.9999994, 0, -4.33065e-08, 0.17639732, 0.2786401, 7.642433e-05)
+transform = Transform3D(-9.685755e-08, 0, 1.0000005, 0, 1, 0, -0.99999917, 0, -4.3190084e-08, 0.17846107, 0.24823618, -0.017366715)
 modulate = Color(0.3338783, 0.34852636, 0.74359965, 1)
 text = "F(x) = 2x + 5"
 font = ExtResource("3_xduf2")
-font_size = 25
+font_size = 40
 outline_size = 10
 
 [node name="Answer" parent="QuestionScreen" unique_id=1239313563 instance=ExtResource("2_2ey3y")]
-transform = Transform3D(-1.1175871e-07, 0, 0.99999934, 0, 1, 0, -0.9999987, 0, -4.321919e-08, 0.2587433, -0.2751713, -0.051602878)
+transform = Transform3D(-1.1920929e-07, 0, 0.9999993, 0, 1, 0, -0.99999857, 0, -4.316098e-08, 0.26351738, -0.2751713, -0.092003)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1281701433]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928472, 0.29742727, 0, 9.594474, 14.153978)
@@ -253,6 +254,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20748878, 1.0743884, 0)
 
 [node name="Round" parent="." unique_id=1454832979 instance=ExtResource("3_f0w01")]
 script = ExtResource("4_cijl1")
+
+[node name="Description" parent="." unique_id=1817146313 instance=ExtResource("7_5h15d")]
 
 [node name="leaderboardTable" parent="." unique_id=454723013 instance=ExtResource("6_bjo2o")]
 anchors_preset = -1

@@ -7,29 +7,29 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 script = ExtResource("1_6ours")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=764723327]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4233336, 0.23101059, -0.0490879)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4362887, 0.23101059, -0.0490879)
 modulate = Color(0.33333334, 0.34901962, 0.74509805, 1)
 text = "a. 5x + 1"
-font_size = 16
+font_size = 22
 outline_size = 6
 
 [node name="Label3D2" type="Label3D" parent="." unique_id=1128187990]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26385212, 0.22731104, 1.1533342e-08)
 modulate = Color(0.33333334, 0.34901962, 0.74509805, 1)
 text = "A. 5x + 4"
-font_size = 16
+font_size = 22
 outline_size = 6
 
 [node name="Label3D3" type="Label3D" parent="." unique_id=1228230049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42645052, 0.006049782, -0.026566643)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4531553, 0.006049782, -0.026566645)
 modulate = Color(0.33333334, 0.34901962, 0.74509805, 1)
 text = "A. 5x + 4"
-font_size = 16
+font_size = 22
 outline_size = 6
 
 [node name="Label3D4" type="Label3D" parent="." unique_id=22135246]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28705642, -0.004031524, -0.068338975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28010064, -0.004031524, -0.068338975)
 modulate = Color(0.33333334, 0.34901962, 0.74509805, 1)
 text = "A. 5x + 4"
-font_size = 16
+font_size = 22
 outline_size = 6

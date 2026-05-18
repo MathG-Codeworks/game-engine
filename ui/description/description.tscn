@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bb5asupvfrc18"]
+
+[ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="1_7liwk"]
+
+[node name="Description" type="Control" unique_id=1817146313]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1381431815]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038000003
+anchor_top = 0.326
+anchor_right = 0.042000003
+anchor_bottom = 0.326
+offset_left = 4.223999
+offset_top = -0.2480011
+offset_right = 350.616
+offset_bottom = 101.752
+theme_override_fonts/font = ExtResource("1_7liwk")
+theme_override_font_sizes/font_size = 22
+text = "pequeña descripcion del ejercicio"
