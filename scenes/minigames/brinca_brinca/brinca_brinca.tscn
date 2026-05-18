@@ -232,7 +232,7 @@ font_size = 25
 outline_size = 10
 
 [node name="Answer" parent="QuestionScreen" unique_id=1239313563 instance=ExtResource("2_2ey3y")]
-transform = Transform3D(-7.4505806e-08, 0, 0.99999964, 0, 1, 0, -0.9999993, 0, -4.3364707e-08, 0.1997757, -0.23236477, 0.4472936)
+transform = Transform3D(-1.1175871e-07, 0, 0.99999934, 0, 1, 0, -0.9999987, 0, -4.321919e-08, 0.2587433, -0.2751713, -0.051602878)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1281701433]
 transform = Transform3D(0.79346687, -0.34397587, 0.50208664, -0.29577014, 0.5030646, 0.8120629, -0.53191197, -0.7928472, 0.29742727, 0, 9.594474, 14.153978)

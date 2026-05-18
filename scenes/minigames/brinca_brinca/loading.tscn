@@ -2,8 +2,13 @@
 
 [ext_resource type="Script" uid="uid://qnkdfcb6gqph" path="res://scenes/minigames/brinca_brinca/loading.gd" id="1_qywu5"]
 [ext_resource type="FontFile" uid="uid://ce1drxesonar3" path="res://fonts/Pixelon-E4JEg.otf" id="2_rg7eq"]
+[ext_resource type="Texture2D" uid="uid://bpkjevgalo74o" path="res://scenes/minigames/brinca_brinca/fondobrinca.png" id="3_gcl2f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rg7eq"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vxa5e"]
+texture = ExtResource("3_gcl2f")
+modulate_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcl2f"]
 bg_color = Color(1, 1, 1, 0.078431375)
 border_width_left = 3
 border_width_top = 3
@@ -26,6 +31,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qywu5")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=166800783]
+modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gcl2f")
+
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=903635101]
 layout_mode = 1
 anchors_preset = 15
@@ -47,7 +63,7 @@ size_flags_horizontal = 3
 [node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=283202252]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rg7eq")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "BRINCA BRINCA"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=1560898946]
@@ -60,7 +76,7 @@ fit_content = true
 [node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer" unique_id=720483825]
 custom_minimum_size = Vector2(400, 250)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rg7eq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_vxa5e")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1985976822]
 layout_mode = 1
@@ -80,5 +96,6 @@ theme_override_constants/margin_bottom = 14
 custom_minimum_size = Vector2(120, 56)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rg7eq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gcl2f")
 disabled = true
 text = "Cargando..."
