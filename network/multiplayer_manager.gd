@@ -30,6 +30,7 @@ const EVALUATE_ANSWER_OP_CODE = 9
 const GAME_REPLAY_OP_CODE = 10
 const PLAYER_REPLAY_OP_CODE = 11
 const PLAYER_NO_REPLAY_OP_CODE = 12
+const MATCH_CREATED = 13;
 	
 func start_match():
 	var payload = JSON.stringify({
@@ -138,7 +139,6 @@ func _on_match_state(state):
 			
 		EXERCISES_LOADED_OP_CODE:
 			var data = JSON.parse_string(state.data)
-			print(data);
 			MinigameManager.update(
 				int(data.minigame),
 				data.description,
@@ -147,6 +147,10 @@ func _on_match_state(state):
 				int(data.round_intermission)
 			)
 			game_loaded.emit()
+
+		MATCH_CREATED:
+			var data = JSON.parse_string(state.data)
+			MultiplayerManager.match_response = MatchResponse.from_dict(data)
 		
 		GAME_REPLAY_OP_CODE:
 			pass
